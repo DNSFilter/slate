@@ -1,20 +1,11 @@
 # Errors
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
-
-
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+200 | OK -- The request was successful
+202 | Accepted -- Your request was successful but is still being processed on the server
+400 | Bad Request -- One or more parameters in the request are invalid
+401 | Unauthorized -- Your API key/secret key is wrong or the key doesn't have permission
+402 | Payment Required -- Your account balance is used up, purchase additional requests in the account dashboard
+429 | Too Many Requests -- Too many requests in a short time
+500 | Internal Server Error -- There was an issue processing the request, try again
