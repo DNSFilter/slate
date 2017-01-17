@@ -1,0 +1,720 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Website Category API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="v2 v2_website-category-api" data-languages="[&quot;shell&quot;,&quot;php&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <a href="/"><img src="../images/logo.png" alt="Logo" /></a>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://dashboard.webshrinker.com/register'>Register for a free account</a></li>
+            <li><a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="website-category-api-introduction">Website Category API Introduction</h1>
+
+<blockquote>
+<p>Example JSON response for a category lookup of webshrinker.com:</p>
+
+<p><a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&amp;hash=66eb681f798372718a5e272a86d204b3</a></p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"informationtech"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"business"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webshrinker.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The Web Shrinker Category API gives developers the ability to lookup the categories that a particular URL, website, domain name, or IP address is categorized as.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>To make API requests you need to have an access key and secret key. If you don&rsquo;t have an access key yet, you can register for a free account on our <a href="https://dashboard.webshrinker.com/register">account dashboard</a>.</p>
+
+<p>There are two methods of authentication that can be used to make API requests: Basic HTTP Authentication and Pre-signed URLs.</p>
+
+<h2 id="basic-http-authentication">Basic HTTP Authentication</h2>
+
+<blockquote>
+<p>Example HTTP request:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/categories/v2/d2Vic2hyaW5rZXIuY29t</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic Yzk1NDJkMDFkNjlmOjE3OTAyYzJjOWIzYQ==</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.webshrinker.com</span>
+</code></pre>
+<p>Basic authentication requires that you send your API access and secret key with each request to the service over HTTPS. Most programming frameworks and SDKs support sending Basic HTTP Authentication “out of the box” with a simple function call.</p>
+
+<p>The access key and secret key are used as the “username” and “password” for Basic Authentication.</p>
+
+<p>If you are crafting the &ldquo;Authorization&rdquo; header yourself it is the word &ldquo;Basic&rdquo; followed by the base64-encoded string &ldquo;your-access-key:your-secret-key&rdquo;. Additional information about this HTTP header can be found on <a href="https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side">Basic access authentication</a> on Wikipedia.</p>
+
+<h2 id="pre-signed-urls">Pre-signed URLs</h2>
+
+<blockquote>
+<p>Example pre-signed category lookup:</p>
+
+<p><a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&amp;hash=66eb681f798372718a5e272a86d204b3</a></p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"informationtech"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"business"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webshrinker.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Generating a pre-signed URL allows you to make requests without revealing your secret key. It’s perfect for situations where you need to embed a request in an application or in a webpage but don’t want users to know your secret key, preventing a third party from making unauthorized requests against your account.</p>
+
+<p>The URL used to make the API request is signed using your access and secret key but the URL itself doesn’t contain the secret key. Instead it contains an extra parameter called &ldquo;hash&rdquo;.</p>
+
+<p>The &ldquo;hash&rdquo; is the MD5 hash of your secret key, a colon (&ldquo;:&rdquo;), and the request URL with query parameters. </p>
+<pre class="highlight shell"><code><span class="nv">WS_ACCESS_KEY</span><span class="o">=</span><span class="s2">"your access key"</span>
+<span class="nv">WS_SECRET_KEY</span><span class="o">=</span><span class="s2">"your secret key"</span>
+
+<span class="nv">URL</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"https://www.webshrinker.com"</span> | base64<span class="k">)</span><span class="o">)</span>
+
+<span class="nv">REQUEST</span><span class="o">=</span><span class="s2">"categories/v2/</span><span class="nv">$URL</span><span class="s2">?key=</span><span class="nv">$WS_ACCESS_KEY</span><span class="s2">"</span>
+<span class="nv">HASH</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"</span><span class="nv">$WS_SECRET_KEY</span><span class="s2">:</span><span class="nv">$REQUEST</span><span class="s2">"</span> | <span class="o">(</span>md5sum <span class="o">||</span> md5<span class="k">)</span><span class="o">))</span>
+
+<span class="nb">echo</span> <span class="s2">"https://api.webshrinker.com/</span><span class="nv">$REQUEST</span><span class="s2">&amp;hash=</span><span class="nv">$HASH</span><span class="s2">"</span>
+</code></pre><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">webshrinker_categories_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="nv">$options</span><span class="o">=</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$access_key</span><span class="p">;</span>
+
+    <span class="nv">$parameters</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"categories/v2/%s?%s"</span><span class="p">,</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$url</span><span class="p">),</span> <span class="nv">$parameters</span><span class="p">);</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s:%s"</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$request</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="s2">"https://api.webshrinker.com/</span><span class="si">{</span><span class="nv">$request</span><span class="si">}</span><span class="s2">&amp;hash=</span><span class="si">{</span><span class="nv">$hash</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$access_key</span> <span class="o">=</span> <span class="s2">"your access key"</span><span class="p">;</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"your secret key"</span><span class="p">;</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">"https://www.webshrinker.com/"</span><span class="p">;</span>
+<span class="nv">$signedUrl</span> <span class="o">=</span> <span class="nx">webshrinker_categories_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="s2">"</span><span class="nv">$signedUrl</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python"><code><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">urlsafe_b64encode</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="k">def</span> <span class="nf">webshrinker_categories_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_key</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="s">"categories/v2/</span><span class="si">%</span><span class="s">s?</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="n">signed_request</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s">"https://api.webshrinker.com/</span><span class="si">%</span><span class="s">s&amp;hash=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">signed_request</span><span class="p">)</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"your access key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"your secret key"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://www.webshrinker.com/"</span>
+<span class="k">print</span> <span class="n">webshrinker_categories_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+</code></pre>
+<h1 id="making-requests">Making Requests</h1>
+
+<h2 id="category-list">Category List</h2>
+
+<blockquote>
+<p>Example category list JSON response:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"uncategorized"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"searchenginesandportals"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"newsandmedia"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"streamingmedia"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"entertainment"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"shopping"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"vehicles"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"gambling"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"informationtech"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"games"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"economyandfinance"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"jobrelated"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"hacking"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"messageboardsandforums"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"socialnetworking"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"chatandmessaging"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"mediasharing"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"blogsandpersonal"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"health"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"adult"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"personals"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"religion"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"travel"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"abortion"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"education"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"drugs"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"alcoholandtobacco"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"business"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"advertising"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"humor"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"foodandrecipes"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"realestate"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"weapons"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"proxyandfilteravoidance"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"virtualreality"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"translators"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"parked"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"illegalcontent"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"contentserver"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight shell"><code>curl -u <span class="s2">"access-key:secret-key"</span> <span class="s2">"https://api.webshrinker.com/categories/v2"</span>
+
+or
+
+curl <span class="s2">"https://api.webshrinker.com/categories/v2?key=NB6E8ZYEYTo8brr73dmT&amp;hash=f4512f0a258b8e39fdf623c4b99e9915"</span>
+</code></pre><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">webshrinker_categories_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="nv">$options</span><span class="o">=</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$access_key</span><span class="p">;</span>
+
+    <span class="nv">$parameters</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"categories/v2/%s?%s"</span><span class="p">,</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$url</span><span class="p">),</span> <span class="nv">$parameters</span><span class="p">);</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s:%s"</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$request</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="s2">"https://api.webshrinker.com/</span><span class="si">{</span><span class="nv">$request</span><span class="si">}</span><span class="s2">&amp;hash=</span><span class="si">{</span><span class="nv">$hash</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$access_key</span> <span class="o">=</span> <span class="s2">"your access key"</span><span class="p">;</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"your secret key"</span><span class="p">;</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">"https://www.webshrinker.com/"</span>
+
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">webshrinker_categories_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+
+<span class="c1">// Initialize cURL and use pre-signed URL authentication
+</span><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nv">$status_code</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">);</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">));</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nv">$status_code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">:</span>
+        <span class="c1">// Do something with the JSON response
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">400</span><span class="o">:</span>
+        <span class="c1">// Bad or malformed HTTP request
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
+        <span class="c1">// Unauthorized
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">402</span><span class="o">:</span>
+        <span class="c1">// Request limit reached
+</span>        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python"><code><span class="c">##########################################################################################</span>
+<span class="c"># NOTE: If you are using Python 2.7.6 you might run into an issue</span>
+<span class="c"># with making API calls using the requests library.</span>
+<span class="c"># For a workaround, see:</span>
+<span class="c"># http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure</span>
+<span class="c">##########################################################################################</span>
+
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">urlsafe_b64encode</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">webshrinker_categories_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_key</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="s">"categories/v2/</span><span class="si">%</span><span class="s">s?</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="n">signed_request</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s">"https://api.webshrinker.com/</span><span class="si">%</span><span class="s">s&amp;hash=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">signed_request</span><span class="p">)</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"your access key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"your secret key"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://www.webshrinker.com/"</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="n">webshrinker_categories_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+
+<span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># Do something with the JSON response</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+    <span class="c"># The website is being visited and the categories will be updated shortly</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+    <span class="c"># Bad or malformed HTTP request</span>
+    <span class="k">print</span> <span class="s">"Bad or malformed HTTP request"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+    <span class="c"># Unauthorized</span>
+    <span class="k">print</span> <span class="s">"Unauthorized - check your access and secret key permissions"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">402</span><span class="p">:</span>
+    <span class="c"># Request limit reached</span>
+    <span class="k">print</span> <span class="s">"Account request limit reached"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># General error occurred</span>
+    <span class="k">print</span> <span class="s">"A general error occurred, try the request again"</span>
+</code></pre>
+<p>This endpoint returns JSON with all of the possible categories that URLs, hostnames, and IP addresses can be associated with.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.webshrinker.com/categories/v2</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>true (if using Pre-signed URLs)</td>
+<td></td>
+<td>Your account access key to use for the request.</td>
+</tr>
+<tr>
+<td>expires</td>
+<td>false</td>
+<td>0</td>
+<td>A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.</td>
+</tr>
+<tr>
+<td>_</td>
+<td>false</td>
+<td></td>
+<td>Can be used as a cache buster to force a users browser to load the latest result. A good value for this would be the current unix timestamp. If using pre-signed URLs, do <em>not</em> include this parameter when generating the hash.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+You can use either Basic HTTP Authentication or Pre-signed URLs to make Category API requests.
+</aside>
+
+<h2 id="category-lookup">Category Lookup</h2>
+
+<blockquote>
+<p>Example JSON response:</p>
+
+<p><a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&amp;hash=66eb681f798372718a5e272a86d204b3</a></p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"informationtech"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"business"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webshrinker.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight shell"><code>curl -u <span class="s2">"access-key:secret-key"</span> <span class="s2">"https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t"</span>
+
+or
+
+curl <span class="s2">"https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&amp;hash=66eb681f798372718a5e272a86d204b3"</span>
+</code></pre><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">webshrinker_categories_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="nv">$options</span><span class="o">=</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$access_key</span><span class="p">;</span>
+
+    <span class="nv">$parameters</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"categories/v2/%s?%s"</span><span class="p">,</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$url</span><span class="p">),</span> <span class="nv">$parameters</span><span class="p">);</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s:%s"</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$request</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="s2">"https://api.webshrinker.com/</span><span class="si">{</span><span class="nv">$request</span><span class="si">}</span><span class="s2">&amp;hash=</span><span class="si">{</span><span class="nv">$hash</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$access_key</span> <span class="o">=</span> <span class="s2">"your access key"</span><span class="p">;</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"your secret key"</span><span class="p">;</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">"https://www.webshrinker.com"</span><span class="p">;</span>
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">webshrinker_categories_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+
+<span class="c1">// Initialize cURL and use pre-signed URL authentication
+</span><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nv">$status_code</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">);</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">));</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nv">$status_code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">:</span>
+        <span class="c1">// Do something with the JSON response
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">202</span><span class="o">:</span>
+        <span class="c1">// The response may have categories but the system is calculating them again,
+</span>        <span class="c1">// check back soon
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">400</span><span class="o">:</span>
+        <span class="c1">// Bad or malformed HTTP request
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
+        <span class="c1">// Unauthorized
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">402</span><span class="o">:</span>
+        <span class="c1">// Request limit reached
+</span>        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python"><code><span class="c">##########################################################################################</span>
+<span class="c"># NOTE: If you are using Python 2.7.6 you might run into an issue</span>
+<span class="c"># with making API calls using the requests library.</span>
+<span class="c"># For a workaround, see:</span>
+<span class="c"># http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure</span>
+<span class="c">##########################################################################################</span>
+
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">urlsafe_b64encode</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">webshrinker_categories_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{}):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_key</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="s">"categories/v2/</span><span class="si">%</span><span class="s">s?</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="n">signed_request</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s">"https://api.webshrinker.com/</span><span class="si">%</span><span class="s">s&amp;hash=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">signed_request</span><span class="p">)</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"your access key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"your secret key"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://www.webshrinker.com"</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="n">webshrinker_categories_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+
+<span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># Do something with the JSON response</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+    <span class="c"># The website is being visited and the categories will be updated shortly</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+    <span class="c"># Bad or malformed HTTP request</span>
+    <span class="k">print</span> <span class="s">"Bad or malformed HTTP request"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+    <span class="c"># Unauthorized</span>
+    <span class="k">print</span> <span class="s">"Unauthorized - check your access and secret key permissions"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">402</span><span class="p">:</span>
+    <span class="c"># Request limit reached</span>
+    <span class="k">print</span> <span class="s">"Account request limit reached"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># General error occurred</span>
+    <span class="k">print</span> <span class="s">"A general error occurred, try the request again"</span>
+</code></pre>
+<p>This endpoint returns a JSON response with the categories associated with the given URL, hostname, or IP address.</p>
+
+<p>If a non-HTTP 200 response is returned then an &ldquo;error&rdquo; attribute will be returned as part of the response. The &ldquo;error&rdquo; array contains a human readable message to help with debugging the error condition.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.webshrinker.com/categories/v2/&lt;url&gt;</code></p>
+
+<h3 id="url">URL</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>true</td>
+<td></td>
+<td>The URL is part of the request and not an additional parameter. It should be Base64-encoded for maximum compatibility. It can be a full URL, a domain name, or an IP address.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>true (if using Pre-signed URLs)</td>
+<td></td>
+<td>Your account access key to use for the request.</td>
+</tr>
+<tr>
+<td>expires</td>
+<td>false</td>
+<td>0</td>
+<td>A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.</td>
+</tr>
+<tr>
+<td>_</td>
+<td>false</td>
+<td></td>
+<td>Can be used as a cache buster to force a users browser to load the latest result. A good value for this would be the current unix timestamp. If using pre-signed URLs, do <em>not</em> include this parameter when generating the hash.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+You can use either Basic HTTP Authentication or Pre-signed URLs to make Category API requests.
+</aside>
+
+<aside class="notice">
+Keep in mind: URLs can be classified into one or more categories. They can also be classified as &ldquo;uncategorized&rdquo; if there isn&rsquo;t enough information to determine a proper category.
+</aside>
+
+<h3 id="category-state">Category State</h3>
+
+<p>An HTTP 200 response indicates that the JSON contains the most current, up-to-date categories for the given URL.</p>
+
+<p>An HTTP 202 response is given when the categories are being calculated for the given URL. If you check back again soon the categories for the URL will be updated.</p>
+
+<h1 id="errors">Errors</h1>
+
+<blockquote>
+<p>Example bad request response:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid signed hash or no API key/secret given"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK &ndash; The request was successful, the most recent categories are returned</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Accepted &ndash; Your request was successful but is still being processed on the server, check back soon</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; One or more parameters in the request are invalid</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key/secret key is wrong or the key doesn&rsquo;t have permission</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required &ndash; Your account balance is used up, purchase additional requests in the account dashboard</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Precondition Failed &ndash; Unable to satisfy the category request because there is not enough information available to classify the given URL</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; Too many requests in a short time</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; There was an issue processing the request, try again</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39356710-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

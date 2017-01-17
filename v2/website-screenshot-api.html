@@ -1,0 +1,776 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Website Screenshots API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="v2 v2_website-screenshot-api" data-languages="[&quot;shell&quot;,&quot;php&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <a href="/"><img src="../images/logo.png" alt="Logo" /></a>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://dashboard.webshrinker.com/register'>Register for a free account</a></li>
+            <li><a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="screenshot-api-introduction">Screenshot API Introduction</h1>
+
+<blockquote>
+<p>Example of what a website screenshot can look like:</p>
+
+<p><img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963" /></p>
+
+<p><a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&amp;key=NB6E8ZYEYTo8brr73dmT&amp;hash=3a1c610060246f4d6470311f8a4e9963</a></p>
+</blockquote>
+
+<p>The Web Shrinker screenshots API gives developers the ability to capture an image of what a particular website looks like in a browser window. You can then include these images in your own web pages or do some other processing on them in your preferred programming language. This technique has been used on many popular sites including the major search engines. </p>
+
+<p>While screenshot thumbnails are commonly used on web pages they can also easily be integrated into other applications and frameworks. For instance, say you have a PHP application that needs images of web sites so they can be included in a PDF report, or an application which tracks visual changes on web sites. The possibilities are endless. That’s why we try to make integration with Web Shrinker as easy as possible by offering SDKs and allowing developers access to the underlying API via simple HTTP requests.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>To make API requests you need to have an access key and secret key. If you don&rsquo;t have an access key yet, you can register for a free account on our <a href="https://dashboard.webshrinker.com/register">account dashboard</a>.</p>
+
+<p>There are two methods of authentication that can be used to make API requests: Basic HTTP Authentication and Pre-signed URLs.</p>
+
+<h2 id="basic-http-authentication">Basic HTTP Authentication</h2>
+
+<blockquote>
+<p>Example HTTP request:</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/thumbnails/v2/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29t?size=xlarge</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic Yzk1NDJkMDFkNjlmOjE3OTAyYzJjOWIzYQ==</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.webshrinker.com</span>
+</code></pre>
+<p>Basic authentication requires that you send your API access and secret key with each request to the service over HTTPS. Most programming frameworks and SDKs support sending Basic HTTP Authentication “out of the box” with a simple function call.</p>
+
+<p>The access key and secret key are used as the “username” and “password” for Basic Authentication.</p>
+
+<p>If you are crafting the &ldquo;Authorization&rdquo; header yourself it is the word &ldquo;Basic&rdquo; followed by the base64-encoded string &ldquo;your-access-key:your-secret-key&rdquo;. Additional information about this HTTP header can be found on <a href="https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side">Basic access authentication</a> on Wikipedia.</p>
+
+<h2 id="pre-signed-urls">Pre-signed URLs</h2>
+
+<blockquote>
+<p>Example pre-signed screenshot URL:</p>
+
+<p><img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963" /></p>
+
+<p><a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&amp;key=NB6E8ZYEYTo8brr73dmT&amp;hash=3a1c610060246f4d6470311f8a4e9963</a></p>
+</blockquote>
+
+<p>Generating a pre-signed URL allows you to make requests without revealing your secret key. It’s perfect for situations where you need to embed a request in an application or in a webpage but don’t want users to know your secret key, preventing a third party from making unauthorized requests against your account.</p>
+
+<p>The URL used to make the API request is signed using your access and secret key but the URL itself doesn’t contain the secret key. Instead it contains an extra parameter called &ldquo;hash&rdquo;.</p>
+
+<p>The &ldquo;hash&rdquo; is the MD5 hash of your secret key, a colon (&ldquo;:&rdquo;), and the request URL with query parameters. </p>
+<pre class="highlight shell"><code><span class="nv">WS_ACCESS_KEY</span><span class="o">=</span><span class="s2">"your access key"</span>
+<span class="nv">WS_SECRET_KEY</span><span class="o">=</span><span class="s2">"your secret key"</span>
+
+<span class="nv">URL</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"http://www.example.com"</span> | base64<span class="k">)</span><span class="o">)</span>
+
+<span class="nv">REQUEST</span><span class="o">=</span><span class="s2">"thumbnails/v2/</span><span class="nv">$URL</span><span class="s2">?key=</span><span class="nv">$WS_ACCESS_KEY</span><span class="s2">&amp;size=xlarge"</span>
+<span class="nv">HASH</span><span class="o">=(</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"</span><span class="nv">$WS_SECRET_KEY</span><span class="s2">:</span><span class="nv">$REQUEST</span><span class="s2">"</span> | <span class="o">(</span>md5sum <span class="o">||</span> md5<span class="k">)</span><span class="o">))</span>
+
+<span class="nb">echo</span> <span class="s2">"https://api.webshrinker.com/</span><span class="nv">$REQUEST</span><span class="s2">&amp;hash=</span><span class="nv">$HASH</span><span class="s2">"</span>
+</code></pre><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">webshrinker_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$options</span><span class="o">=</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$access_key</span><span class="p">;</span>
+
+    <span class="nv">$parameters</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"thumbnails/v2/%s?%s"</span><span class="p">,</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$url</span><span class="p">),</span> <span class="nv">$parameters</span><span class="p">);</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s:%s"</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$request</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="s2">"https://api.webshrinker.com/</span><span class="si">{</span><span class="nv">$request</span><span class="si">}</span><span class="s2">&amp;hash=</span><span class="si">{</span><span class="nv">$hash</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$access_key</span> <span class="o">=</span> <span class="s2">"your access key"</span><span class="p">;</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"your secret key"</span><span class="p">;</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">"http://www.example.com/"</span><span class="p">;</span>
+<span class="nv">$signedUrl</span> <span class="o">=</span> <span class="nx">webshrinker_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'size'</span> <span class="o">=&gt;</span> <span class="s1">'xlarge'</span>
+<span class="p">]);</span>
+
+<span class="k">echo</span> <span class="s2">"</span><span class="nv">$signedUrl</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python"><code><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">urlsafe_b64encode</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="k">def</span> <span class="nf">webshrinker_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_key</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="s">"thumbnails/v2/</span><span class="si">%</span><span class="s">s?</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="n">signed_request</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s">"https://api.webshrinker.com/</span><span class="si">%</span><span class="s">s&amp;hash=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">signed_request</span><span class="p">)</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"your access key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"your secret key"</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'size'</span><span class="p">:</span> <span class="s">'xlarge'</span>
+<span class="p">}</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.example.com"</span>
+<span class="k">print</span> <span class="n">webshrinker_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</code></pre>
+<h1 id="making-requests">Making Requests</h1>
+
+<h2 id="image-requests">Image Requests</h2>
+<pre class="highlight shell"><code>curl -v -u <span class="s2">"access-key:secret-key"</span> <span class="s2">"https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==?size=xlarge"</span> -o screenshot.png
+</code></pre><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">webshrinker_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$options</span><span class="o">=</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$access_key</span><span class="p">;</span>
+
+    <span class="nv">$parameters</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"thumbnails/v2/%s?%s"</span><span class="p">,</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$url</span><span class="p">),</span> <span class="nv">$parameters</span><span class="p">);</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s:%s"</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$request</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="s2">"https://api.webshrinker.com/</span><span class="si">{</span><span class="nv">$request</span><span class="si">}</span><span class="s2">&amp;hash=</span><span class="si">{</span><span class="nv">$hash</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$access_key</span> <span class="o">=</span> <span class="s2">"your access key"</span><span class="p">;</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"your secret key"</span><span class="p">;</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">"http://www.example.com"</span><span class="p">;</span>
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">webshrinker_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'size'</span> <span class="o">=&gt;</span> <span class="s1">'xlarge'</span>
+<span class="p">]);</span>
+
+<span class="c1">// Initialize cURL and use pre-signed URL authentication
+</span><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$image_data</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nv">$status_code</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">);</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nv">$status_code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">:</span>
+        <span class="c1">// $image_data contains the screenshot of the site
+</span>        <span class="c1">// Do something with the image
+</span>        <span class="k">echo</span> <span class="s2">"The screenshot was saved to: screenshot.png</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">'screenshot.png'</span><span class="p">,</span> <span class="nv">$image_data</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">202</span><span class="o">:</span>
+        <span class="c1">// The website is being visited and the screenshot created
+</span>        <span class="c1">// $image_data contains the placeholder loading image
+</span>        <span class="k">echo</span> <span class="s2">"The screenshot is being created, the placeholder image was saved to: screenshot.png</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">'screenshot.png'</span><span class="p">,</span> <span class="nv">$image_data</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">400</span><span class="o">:</span>
+        <span class="c1">// Bad or malformed HTTP request
+</span>        <span class="k">echo</span> <span class="s2">"Bad or malformed HTTP request</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
+        <span class="c1">// Unauthorized
+</span>        <span class="k">echo</span> <span class="s2">"Unauthorized - check your access and secret key permissions</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">402</span><span class="o">:</span>
+        <span class="c1">// Request limit reached
+</span>        <span class="k">echo</span> <span class="s2">"Account request limit reached</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python"><code><span class="c">##########################################################################################</span>
+<span class="c"># NOTE: If you are using Python 2.7.6 you might run into an issue</span>
+<span class="c"># with making API calls using the requests library.</span>
+<span class="c"># For a workaround, see:</span>
+<span class="c"># http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure</span>
+<span class="c">##########################################################################################</span>
+
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">urlsafe_b64encode</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">webshrinker_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_key</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="s">"thumbnails/v2/</span><span class="si">%</span><span class="s">s?</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="n">signed_request</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s">"https://api.webshrinker.com/</span><span class="si">%</span><span class="s">s&amp;hash=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">signed_request</span><span class="p">)</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"your access key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"your secret key"</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="s">'size'</span><span class="p">:</span> <span class="s">'xlarge'</span> 
+<span class="p">}</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://www.webshrinker.com"</span>
+
+<span class="c"># Make a screenshot API call using pre-signed URL authentication</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="n">webshrinker_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+<span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># image_data contains the screenshot of the site</span>
+    <span class="c"># Do something with the image</span>
+    <span class="k">print</span> <span class="s">"Screenshot image retrieved and saved to 'screenshot.png'"</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"screenshot.png"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+    <span class="c"># The website is being visited and the screenshot created</span>
+    <span class="c"># image_data contains the placeholder loading image</span>
+    <span class="k">print</span> <span class="s">"The screenshot is being created, the placeholder image was saved to 'screenshot.png'"</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"screenshot.png"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+    <span class="c"># Bad or malformed HTTP request</span>
+    <span class="k">print</span> <span class="s">"Bad or malformed HTTP request"</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+    <span class="c"># Unauthorized</span>
+    <span class="k">print</span> <span class="s">"Unauthorized - check your access and secret key permissions"</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">402</span><span class="p">:</span>
+    <span class="c"># Request limit reached</span>
+    <span class="k">print</span> <span class="s">"Account request limit reached"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># General error occurred</span>
+    <span class="k">print</span> <span class="s">"A general error occurred, try the request again"</span>
+</code></pre>
+<p>This endpoint returns a PNG image in the size requested for the specified URL.</p>
+
+<p>If you need to know the status of a screenshot use the &ldquo;<a href="#information-requests">Information Request</a>&rdquo; JSON endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.webshrinker.com/thumbnails/v2/&lt;url&gt;</code></p>
+
+<h3 id="url">URL</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>true</td>
+<td></td>
+<td>The URL is part of the request and not an additional parameter. It should be Base64-encoded for maximum compatibility.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>true (if using Pre-signed URLs)</td>
+<td></td>
+<td>Your account access key to use for the request.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>true</td>
+<td></td>
+<td>The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, or a custom size like 320x240.</td>
+</tr>
+<tr>
+<td>viewport</td>
+<td>false</td>
+<td>1280x1024</td>
+<td>The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.</td>
+</tr>
+<tr>
+<td>fullpage</td>
+<td>false</td>
+<td>false</td>
+<td>Returns a screenshot of the entire webpage and not just what is visible in the viewport.</td>
+</tr>
+<tr>
+<td>refresh</td>
+<td>false</td>
+<td>false</td>
+<td>Returns the most recent screenshot if it&rsquo;s available. It will also request that the URL be visited again and a fresh screenshot be captured.</td>
+</tr>
+<tr>
+<td>expires</td>
+<td>false</td>
+<td>0</td>
+<td>A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.</td>
+</tr>
+<tr>
+<td>_</td>
+<td>false</td>
+<td></td>
+<td>Can be used as a cache buster to force a users browser to load the latest screenshot image. A good value for this would be the current unix timestamp. If using pre-signed URLs, do <em>not</em> include this parameter when generating the hash.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+You can use either Basic HTTP Authentication or Pre-signed URLs to make image requests.
+</aside>
+
+<h2 id="information-requests">Information Requests</h2>
+
+<blockquote>
+<p>Example JSON response:</p>
+
+<p><a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info?size=xlarge&key=NB6E8ZYEYTo8brr73dmT&hash=0593d6a90d29cdef477830e1df8fd4cd">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info?size=xlarge&amp;key=NB6E8ZYEYTo8brr73dmT&amp;hash=0593d6a90d29cdef477830e1df8fd4cd</a></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==?size=xlarge&amp;key=NB6E8ZYEYTo8brr73dmT&amp;hash=f0106d8ead3c5357934da00f409249af"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"READY"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 30 May 2016 23:13:06 +0000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.webshrinker.com/"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight shell"><code>curl -v -u <span class="s2">"access-key:secret-key"</span> <span class="s2">"https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info"</span>
+</code></pre><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">webshrinker_info_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$options</span><span class="o">=</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$options</span><span class="p">[</span><span class="s1">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$access_key</span><span class="p">;</span>
+
+    <span class="nv">$parameters</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+
+    <span class="nv">$request</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"thumbnails/v2/%s/info?%s"</span><span class="p">,</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$url</span><span class="p">),</span> <span class="nv">$parameters</span><span class="p">);</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s:%s"</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$request</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="s2">"https://api.webshrinker.com/</span><span class="si">{</span><span class="nv">$request</span><span class="si">}</span><span class="s2">&amp;hash=</span><span class="si">{</span><span class="nv">$hash</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$access_key</span> <span class="o">=</span> <span class="s2">"your access key"</span><span class="p">;</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"your secret key"</span><span class="p">;</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">"http://www.example.com"</span><span class="p">;</span>
+<span class="nv">$request</span> <span class="o">=</span> <span class="nx">webshrinker_info_v2</span><span class="p">(</span><span class="nv">$access_key</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'size'</span> <span class="o">=&gt;</span> <span class="s1">'xlarge'</span>
+<span class="p">]);</span>
+
+<span class="c1">// Initialize cURL and use pre-signed URL authentication
+</span><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nv">$status_code</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">);</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">));</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="nv">$status_code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">:</span>
+        <span class="c1">// Do something with the JSON response
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">400</span><span class="o">:</span>
+        <span class="c1">// Bad or malformed HTTP request
+</span>        <span class="k">echo</span> <span class="s2">"Bad or malformed HTTP request</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
+        <span class="c1">// Unauthorized
+</span>        <span class="k">echo</span> <span class="s2">"Unauthorized - check your access and secret key permissions</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">402</span><span class="o">:</span>
+        <span class="c1">// Request limit reached
+</span>        <span class="k">echo</span> <span class="s2">"Account request limit reached</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python"><code><span class="c">##########################################################################################</span>
+<span class="c"># NOTE: If you are using Python 2.7.6 you might run into an issue</span>
+<span class="c"># with making API calls using the requests library.</span>
+<span class="c"># For a workaround, see:</span>
+<span class="c"># http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure</span>
+<span class="c">##########################################################################################</span>
+
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">urlsafe_b64encode</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">webshrinker_info_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s">'key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">access_key</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="s">"thumbnails/v2/</span><span class="si">%</span><span class="s">s/info?</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="n">signed_request</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s:</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s">"https://api.webshrinker.com/</span><span class="si">%</span><span class="s">s&amp;hash=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">signed_request</span><span class="p">)</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"your access key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"your secret key"</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="s">'size'</span><span class="p">:</span> <span class="s">'xlarge'</span> 
+<span class="p">}</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.example.com"</span>
+
+<span class="c"># Make a screenshot API call using pre-signed URL authentication</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="n">webshrinker_info_v2</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+
+<span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># Do something with the JSON response</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+    <span class="c"># The website is being visited and the screenshot created</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+    <span class="c"># Bad or malformed HTTP request</span>
+    <span class="k">print</span> <span class="s">"Bad or malformed HTTP request"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span><span class="p">:</span>
+    <span class="c"># Unauthorized</span>
+    <span class="k">print</span> <span class="s">"Unauthorized - check your access and secret key permissions"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">402</span><span class="p">:</span>
+    <span class="c"># Request limit reached</span>
+    <span class="k">print</span> <span class="s">"Account request limit reached"</span>
+    <span class="k">print</span> <span class="n">data</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># General error occurred</span>
+    <span class="k">print</span> <span class="s">"A general error occurred, try the request again"</span>
+</code></pre>
+<p>This endpoint returns a JSON response for the requested URL. The response includes the last updated/visited timestamp and the current screenshot status.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.webshrinker.com/thumbnails/v2/&lt;url&gt;/info</code></p>
+
+<h3 id="url">URL</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>true</td>
+<td></td>
+<td>The URL is part of the request and not an additional parameter. It should be Base64-encoded for maximum compatibility.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>true (if using Pre-signed URLs)</td>
+<td></td>
+<td>Your account access key to use for the request.</td>
+</tr>
+</tbody></table>
+
+<h3 id="screenshot-parameters">Screenshot Parameters</h3>
+
+<p>If the &ldquo;size&rdquo; parameter is included in the information request then a pre-signed screenshot URL will be present in the JSON response. You can pass other screenshot parameters to be included with the pre-signed image URL.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>size</td>
+<td>false</td>
+<td></td>
+<td>The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, or a custom size like 320x240.</td>
+</tr>
+<tr>
+<td>viewport</td>
+<td>false</td>
+<td>1280x1024</td>
+<td>The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.</td>
+</tr>
+<tr>
+<td>fullpage</td>
+<td>false</td>
+<td>false</td>
+<td>Returns a screenshot of the entire webpage and not just what is visible in the viewport.</td>
+</tr>
+<tr>
+<td>refresh</td>
+<td>false</td>
+<td>false</td>
+<td>Returns the most recent screenshot if it&rsquo;s available. It will also request that the URL be visited again and a fresh screenshot be captured.</td>
+</tr>
+<tr>
+<td>expires</td>
+<td>false</td>
+<td>0</td>
+<td>A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.</td>
+</tr>
+<tr>
+<td>_</td>
+<td>false</td>
+<td></td>
+<td>Can be used as a cache buster to force a users browser to load the latest screenshot image. A good value for this would be the current unix timestamp. If using pre-signed URLs, do <em>not</em> include this parameter when generating the hash.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+You can use either Basic HTTP Authentication or Pre-signed URLs to make information/JSON requests.
+</aside>
+
+<h3 id="screenshot-state">Screenshot State</h3>
+
+<blockquote>
+<p>Example JSON response for a screenshot that is being refreshed / revisited:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.webshrinker.com/thumbnails/v2/aHR0cDovL3d3dy53ZWJzaHJpbmtlci5jb20v?size=xlarge&amp;key=NB6E8ZYEYTo8brr73dmT&amp;hash=12ba6cad25e1d6782c4d9d0a3352705f"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REFRESH"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 30 May 2016 18:03:26 +0000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.webshrinker.com/"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The &ldquo;state&rdquo; field in the JSON response represents the current status of the screenshot image.</p>
+
+<table><thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>READY</td>
+<td>the URL was visited and the screenshot image is ready</td>
+</tr>
+<tr>
+<td>REFRESH</td>
+<td>an older screenshot image is available but we&rsquo;re revisiting the URL and generating a new image</td>
+</tr>
+<tr>
+<td>PROCESSING</td>
+<td>the URL is being visited now and the screenshot will be created</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>an error happened while visiting the destination URL and we weren&rsquo;t able to generate a screenshot</td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<blockquote>
+<p>Default screenshot error placeholder images</p>
+
+<p><img src="../images/default_large_queued.png" />
+<img src="../images/default_large_error.png" />
+<img src="../images/default_large_limit.png" />
+<img src="../images/default_large_denied.png" /></p>
+</blockquote>
+
+<p>Screenshot image requests will always return an image as a response even if there was an error with the request. A special image is returned for these conditions so that if it is being displayed to an end user it will still display something and won’t break.</p>
+
+<p>These error images are customizable for each account through the Account Dashboard page.</p>
+
+<p>Error conditions include: processing (visiting and generating the image now), unavailable (target website did not respond, was down, or returned invalid content), account request limits reached, and credential errors.</p>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK &ndash; The request was successful</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Accepted &ndash; Your request was successful but is still being processed on the server</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; One or more parameters in the request are invalid</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key/secret key is wrong or the key doesn&rsquo;t have permission</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required &ndash; Your account balance is used up, purchase additional requests in the account dashboard</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; Too many requests in a short time</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; There was an issue processing the request, try again</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39356710-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
