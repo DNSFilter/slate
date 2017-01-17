@@ -105,13 +105,13 @@ echo "$signedUrl\n";
 
 ```python
 from urllib import urlencode
-from base64 import b64encode
+from base64 import urlsafe_b64encode
 import hashlib
 
 def webshrinker_v2(access_key, secret_key, url, params):
     params['key'] = access_key
 
-    request = "thumbnails/v2/%s?%s" % (b64encode(url), urlencode(params, True))
+    request = "thumbnails/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
     signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
@@ -204,14 +204,14 @@ switch($status_code) {
 ##########################################################################################
 
 from urllib import urlencode
-from base64 import b64encode
+from base64 import urlsafe_b64encode
 import hashlib
 import requests
 
 def webshrinker_v2(access_key, secret_key, url, params):
     params['key'] = access_key
 
-    request = "thumbnails/v2/%s?%s" % (b64encode(url), urlencode(params, True))
+    request = "thumbnails/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
     signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
@@ -376,14 +376,14 @@ switch($status_code) {
 ##########################################################################################
 
 from urllib import urlencode
-from base64 import b64encode
+from base64 import urlsafe_b64encode
 import hashlib
 import requests
 
 def webshrinker_info_v2(access_key, secret_key, url, params):
     params['key'] = access_key
 
-    request = "thumbnails/v2/%s/info?%s" % (b64encode(url), urlencode(params, True))
+    request = "thumbnails/v2/%s/info?%s" % (urlsafe_b64encode(url), urlencode(params, True))
     signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)

@@ -128,13 +128,13 @@ echo "$signedUrl\n";
 
 ```python
 from urllib import urlencode
-from base64 import b64encode
+from base64 import urlsafe_b64encode
 import hashlib
 
 def webshrinker_categories_v2(access_key, secret_key, url="", params={}):
     params['key'] = access_key
 
-    request = "categories/v2/%s?%s" % (b64encode(url), urlencode(params, True))
+    request = "categories/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
     signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
@@ -199,7 +199,8 @@ Content-Type: application/json
                 "virtualreality",
                 "translators",
                 "parked",
-                "illegalcontent"
+                "illegalcontent",
+                "contentserver"
             ]
         }
     ]
@@ -231,7 +232,9 @@ function webshrinker_categories_v2($access_key, $secret_key, $url="", $options=a
 $access_key = "your access key";
 $secret_key = "your secret key";
 
-$request = webshrinker_categories_v2($access_key, $secret_key);
+$url = "https://www.webshrinker.com/"
+
+$request = webshrinker_categories_v2($access_key, $secret_key, $url);
 
 // Initialize cURL and use pre-signed URL authentication
 $ch = curl_init();
@@ -270,14 +273,14 @@ switch($status_code) {
 ##########################################################################################
 
 from urllib import urlencode
-from base64 import b64encode
+from base64 import urlsafe_b64encode
 import hashlib
 import requests
 
 def webshrinker_categories_v2(access_key, secret_key, url="", params={}):
     params['key'] = access_key
 
-    request = "categories/v2/%s?%s" % (b64encode(url), urlencode(params, True))
+    request = "categories/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
     signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
@@ -285,7 +288,9 @@ def webshrinker_categories_v2(access_key, secret_key, url="", params={}):
 access_key = "your access key"
 secret_key = "your secret key"
 
-api_url = webshrinker_categories_v2(access_key, secret_key)
+url = "https://www.webshrinker.com/"
+
+api_url = webshrinker_categories_v2(access_key, secret_key, url)
 response = requests.get(api_url)
 
 status_code = response.status_code
@@ -423,14 +428,14 @@ switch($status_code) {
 ##########################################################################################
 
 from urllib import urlencode
-from base64 import b64encode
+from base64 import urlsafe_b64encode
 import hashlib
 import requests
 
 def webshrinker_categories_v2(access_key, secret_key, url="", params={}):
     params['key'] = access_key
 
-    request = "categories/v2/%s?%s" % (b64encode(url), urlencode(params, True))
+    request = "categories/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
     signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
