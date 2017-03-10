@@ -24,9 +24,15 @@ search: true
 
 ><a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963</a>
 
+> Example of what a pixelated screenshot can look like (used when blurring sites that contain "adult" content):
+
+><img src="/images/sample_pixelated_image.png" />
+
 The Web Shrinker screenshots API gives developers the ability to capture an image of what a particular website looks like in a browser window. You can then include these images in your own web pages or do some other processing on them in your preferred programming language. This technique has been used on many popular sites including the major search engines. 
 
 While screenshot thumbnails are commonly used on web pages they can also easily be integrated into other applications and frameworks. For instance, say you have a PHP application that needs images of web sites so they can be included in a PDF report, or an application which tracks visual changes on web sites. The possibilities are endless. That’s why we try to make integration with Web Shrinker as easy as possible by offering SDKs and allowing developers access to the underlying API via simple HTTP requests.
+
+It is also possible to automatically pixelate screenshots for websites that are categorized as an "adult" site, reducing the chances that you would be displaying questionable content to your users.
 
 # Authentication
 
@@ -286,6 +292,8 @@ viewport | false | 1280x1024 | The width and height that the browser window will
 fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
 refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
 expires | false | 0 | A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.
+hideadult | false | 0 | Automatically detect and return a pixelated/blurred image if the URL or domain name is categorized as "adult".
+pixelate | false | 2/4/6/10/16 | When using the 'hideadult' option, apply this amount of pixelation to the screenshot image.
 _ | false | | Can be used as a cache buster to force a users browser to load the latest screenshot image. A good value for this would be the current unix timestamp. If using pre-signed URLs, do *not* include this parameter when generating the hash.
 <aside class="success">
 You can use either Basic HTTP Authentication or Pre-signed URLs to make image requests.
@@ -456,6 +464,8 @@ viewport | false | 1280x1024 | The width and height that the browser window will
 fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
 refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
 expires | false | 0 | A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.
+hideadult | false | 0 | Automatically detect and return a pixelated/blurred image if the URL or domain name is categorized as "adult".
+pixelate | false | 2/4/6/10/16 | When using the 'hideadult' option, apply this amount of pixelation to the screenshot image.
 _ | false | | Can be used as a cache buster to force a users browser to load the latest screenshot image. A good value for this would be the current unix timestamp. If using pre-signed URLs, do *not* include this parameter when generating the hash.
 <aside class="success">
 You can use either Basic HTTP Authentication or Pre-signed URLs to make information/JSON requests.
