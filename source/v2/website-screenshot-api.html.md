@@ -287,7 +287,8 @@ url | true | | The URL is part of the request and not an additional parameter. I
 Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 key | true (if using Pre-signed URLs) | | Your account access key to use for the request.
-size | true | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, or a custom size like 320x240.
+size | true | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, 4xlarge, or a custom size like 320x240. *Use size or width, not both.*
+width | false | | Set the width for the returned image, maintaining aspect ratio. Max value is 2048. *Use size or width, not both.*
 viewport | false | 1280x1024 | The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.
 fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
 refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
@@ -455,11 +456,12 @@ key | true (if using Pre-signed URLs) | | Your account access key to use for the
 
 ### Screenshot Parameters
 
-If the "size" parameter is included in the information request then a pre-signed screenshot URL will be present in the JSON response. You can pass other screenshot parameters to be included with the pre-signed image URL.
+If the "size" or "width" parameter is included in the information request then a pre-signed screenshot URL will be present in the JSON response. You can pass other screenshot parameters to be included with the pre-signed image URL.
 
 Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
-size | false | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, or a custom size like 320x240.
+size | false | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, 4xlarge, or a custom size like 320x240. *Use size or width, not both.*
+width | false | | Set the width for the returned image, maintaining aspect ratio. Max value is 2048. *Use size or width, not both.*
 viewport | false | 1280x1024 | The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.
 fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
 refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
@@ -496,3 +498,21 @@ READY | the URL was visited and the screenshot image is ready
 REFRESH | an older screenshot image is available but we're revisiting the URL and generating a new image
 PROCESSING | the URL is being visited now and the screenshot will be created
 ERROR | an error happened while visiting the destination URL and we weren't able to generate a screenshot
+
+# Screenshot Sizes
+
+You can use a short name for the "size" parameter for screenshots or your own custom size. Custom sizes are given in "widthxheight" format, such as: 320x240, 800x600, or 1024x768.
+
+These short names can be used for the "size" parameter instead of specifying the full dimensions:
+
+Short Name | Width x Height
+---------- | --------------
+micro | 75 x 56
+tiny | 90 x 68
+verysmall | 100 x 75
+small | 120 x 90
+large | 200 x 150
+xlarge | 320 x 240
+2xlarge | 550 x 412
+3xlarge | 1024 x 768
+4xlarge | 1280 x 1024
