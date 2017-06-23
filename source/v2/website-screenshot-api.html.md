@@ -288,13 +288,14 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 key | true (if using Pre-signed URLs) | | Your account access key to use for the request.
 size | true | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, 4xlarge, or a custom size like 320x240. *Use size or width, not both.*
-width | false | | Set the width for the returned image, maintaining aspect ratio. Max value is 2048. *Use size or width, not both.*
-viewport | false | 1280x1024 | The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.
-fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
-refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
+delay | false | 0 | An extra amount of seconds to wait before taking the screenshot.
 expires | false | 0 | A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.
+fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
 hideadult | false | 0 | Automatically detect and return a pixelated/blurred image if the URL or domain name is categorized as "adult".
+refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
 pixelate | false | 2/4/6/10/16 | When using the 'hideadult' option, apply this amount of pixelation to the screenshot image.
+viewport | false | 1280x1024 | The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.
+width | false | | Set the width for the returned image, maintaining aspect ratio. Max value is 2048. *Use size or width, not both.*
 _ | false | | Can be used as a cache buster to force a users browser to load the latest screenshot image. A good value for this would be the current unix timestamp. If using pre-signed URLs, do *not* include this parameter when generating the hash.
 <aside class="success">
 You can use either Basic HTTP Authentication or Pre-signed URLs to make image requests.
@@ -460,14 +461,15 @@ If the "size" or "width" parameter is included in the information request then a
 
 Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
-size | false | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, 4xlarge, or a custom size like 320x240. *Use size or width, not both.*
-width | false | | Set the width for the returned image, maintaining aspect ratio. Max value is 2048. *Use size or width, not both.*
-viewport | false | 1280x1024 | The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.
-fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
-refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
+delay | false | 0 | An extra amount of seconds to wait before taking the screenshot.
 expires | false | 0 | A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.
+fullpage | false | false | Returns a screenshot of the entire webpage and not just what is visible in the viewport.
 hideadult | false | 0 | Automatically detect and return a pixelated/blurred image if the URL or domain name is categorized as "adult".
 pixelate | false | 2/4/6/10/16 | When using the 'hideadult' option, apply this amount of pixelation to the screenshot image.
+refresh | false | false | Returns the most recent screenshot if it's available. It will also request that the URL be visited again and a fresh screenshot be captured.
+size | false | | The size of the image to be returned. Valid values: micro, tiny, verysmall, small, large, xlarge, 2xlarge, 3xlarge, 4xlarge, or a custom size like 320x240. *Use size or width, not both.*
+viewport | false | 1280x1024 | The width and height that the browser window will use for the screenshot capture. Think of this as the users screen size.
+width | false | | Set the width for the returned image, maintaining aspect ratio. Max value is 2048. *Use size or width, not both.*
 _ | false | | Can be used as a cache buster to force a users browser to load the latest screenshot image. A good value for this would be the current unix timestamp. If using pre-signed URLs, do *not* include this parameter when generating the hash.
 <aside class="success">
 You can use either Basic HTTP Authentication or Pre-signed URLs to make information/JSON requests.
