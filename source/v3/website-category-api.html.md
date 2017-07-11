@@ -611,8 +611,14 @@ Content-Type: application/json
     "data": [
         {
             "categories": [
-                "business",
-                "informationtech"
+                {
+                    "id": "business",
+                    "label": "Business"
+                },
+                {
+                    "id": "informationtech",
+                    "label": "Information Technology"
+                }
             ],
             "url": "webshrinker.com"
         }
@@ -620,7 +626,12 @@ Content-Type: application/json
 }
 ```
 
-Each detected category will be listed in the "categories" section of the JSON response. Each entry is the "short name" or "tag" identifier which indicates the relevant categories.
+Each detected category will be listed in the "categories" section of the JSON response.
+
+Field | Description
+----- | -----------
+id | The Web Shrinker category "short name".
+label | Human friendly label for the detected category.
 
 <aside class="notice">
 The Web Shrinker taxonomy will return up to three of the most relevant categories for the query. The only exception is when querying IP addresses, as they cover a wider range of content and can return a greater number of categories.
