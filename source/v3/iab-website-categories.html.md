@@ -3,7 +3,6 @@ title: Website Categories (API v3)
 
 toc_footers:
   - <a href='website-category-api.html'>< Website Category API v3</a>
-  -
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
   - <a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a>
 
@@ -20,7 +19,7 @@ There are 26 tier-1 (top level) categories, 366 tier-2 (sub level) categories, a
 
 ## Additional Categories
 
-As the IAB category taxonomy is heavily geared toward advertising, we have added some additional categories to better support other use cases like Internet filtering.
+As the IAB category taxonomy are heavily geared toward advertising, we have added some additional categories to better support other use cases like Internet filtering and security appliances.
 
 These extra categories are nested under tier-1 but contain "-WS" in the identifier. For example, IAB7-WS1, or "Health & Fitness > Abortion". These extra categories add granularity and allow you to make better decisions on what to do with the content.
 
@@ -29,7 +28,7 @@ These extra categories are nested under tier-1 but contain "-WS" in the identifi
 These are the supported IAB categories available in the category API.
 
 <aside class="notice">
-Note: The tier-1 and tier-2 category listing can be accessed via an API call so you can load this data directly into your application. See <a href="website-category-api.html#category-list">Category List</a> for more information.
+Note: The tier-1 and tier-2 category listing can be accessed via an API call so you can load this data directly into your application. See <a href="website-category-api.html#list-all-categories">List All Categories</a> for more information.
 </aside>
 
 There are some minor changes to the category name labels as well as a few categories being combined. Any of these changes are indicated with a superscript number (<sup>1,2</sup> or <sup>3</sup>) next to the category in the following list.
@@ -107,7 +106,7 @@ There are some minor changes to the category name labels as well as a few catego
     * IAB5-6 - Distance Learning
     * IAB5-7 - English as a 2nd Language
     * IAB5-8 - Language Learning
-    * IAB5-9 - College / Graduate School
+    * IAB5-9 - College / Graduate School <sup><a href="#1">1</a></sup>
     * IAB5-10 - Homeschooling
     * IAB5-11 - Homework/Study Tips
     * IAB5-12 - K-6 Education <sup><a href="#1">1</a></sup>

@@ -29,15 +29,15 @@ Content-Type: application/json
                     "confident": true,
                     "id": "IAB19",
                     "label": "Technology & Computing",
-                    "root": "IAB19",
-                    "score": "0.85580916650008609369848500136868096888"
+                    "parent": "IAB19",
+                    "score": "0.855809166500086094"
                 },
                 {
                     "confident": true,
                     "id": "IAB19-18",
                     "label": "Internet Technology",
-                    "root": "IAB19",
-                    "score": "0.82406311715313962373841150110820308328"
+                    "parent": "IAB19",
+                    "score": "0.824063117153139624"
                 }
             ],
             "url": "webshrinker.com"
@@ -58,7 +58,7 @@ Queries for a domain name, like example.com, will return the main categories ass
 
 **IP Addresses**
 
-Queries for IP addresses will return the most relevent categories for all of the content we've seen hosted on that IP address. This can be used in situations where you don't know which domain name to lookup but have an IP address.
+Queries for IP addresses will return the most relevant categories for all of the content we've seen hosted on that IP address. This can be used in situations where you don't know which domain name to lookup but have an IP address.
 
 # Authentication
 
@@ -100,15 +100,15 @@ Content-Type: application/json
                     "confident": true,
                     "id": "IAB19",
                     "label": "Technology & Computing",
-                    "root": "IAB19",
-                    "score": "0.85580916650008609369848500136868096888"
+                    "parent": "IAB19",
+                    "score": "0.855809166500086094"
                 },
                 {
                     "confident": true,
                     "id": "IAB19-18",
                     "label": "Internet Technology",
-                    "root": "IAB19",
-                    "score": "0.82406311715313962373841150110820308328"
+                    "parent": "IAB19",
+                    "score": "0.824063117153139624"
                 }
             ],
             "url": "webshrinker.com"
@@ -181,13 +181,17 @@ print webshrinker_categories_v3(access_key, secret_key, url)
 
 ```
 
-# Available Categories
+# Category Taxonomies
 
-[Supported IAB Website Categories](iab-website-categories.html)
+You can choose to use either the "IAB Tech Lab Content Taxonomy / Quality Assurance Guidelines (QAG) Taxonomy" (iabv1) or "Web Shrinker" (webshrinker). When you make a category API request, pass in the query parameter "taxonomy" with the value set to "iabv1" or "webshrinker" as needed.
+
+The IAB Content Taxonomy contains over 400 categories and the Web Shrinker taxonomy is composed of 40 top-level categories.
+
+See [Supported IAB Website Categories](iab-website-categories.html) or [Web Shrinker Website Categories](web-shrinker-categories.html) for additional information.
 
 # Making Requests
 
-## Category List
+## List All Categories
 
 > Example category list JSON response:
 
@@ -354,6 +358,7 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 key | true (if using Pre-signed URLs) | | Your account access key to use for the request.
 expires | false | 0 | A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.
+taxonomy | false | iabv1 | Which category taxonomy to use, either "iabv1" or "webshrinker"
 _ | false | | Can be used as a cache buster to force a users browser to load the latest result. A good value for this would be the current unix timestamp. If using pre-signed URLs, do *not* include this parameter when generating the hash.
 <aside class="success">
 You can use either Basic HTTP Authentication or Pre-signed URLs to make Category API requests.
@@ -377,15 +382,15 @@ Content-Type: application/json
                     "confident": true,
                     "id": "IAB19",
                     "label": "Technology & Computing",
-                    "root": "IAB19",
-                    "score": "0.85580916650008609369848500136868096888"
+                    "parent": "IAB19",
+                    "score": "0.855809166500086094"
                 },
                 {
                     "confident": true,
                     "id": "IAB19-18",
                     "label": "Internet Technology",
-                    "root": "IAB19",
-                    "score": "0.82406311715313962373841150110820308328"
+                    "parent": "IAB19",
+                    "score": "0.824063117153139624"
                 }
             ],
             "url": "webshrinker.com"
@@ -529,6 +534,7 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 key | true (if using Pre-signed URLs) | | Your account access key to use for the request.
 expires | false | 0 | A unix timestamp of a future date when the pre-signed URL request will expire and cannot be used any more.
+taxonomy | false | iabv1 | Which category taxonomy to use, either "iabv1" or "webshrinker"
 _ | false | | Can be used as a cache buster to force a users browser to load the latest result. A good value for this would be the current unix timestamp. If using pre-signed URLs, do *not* include this parameter when generating the hash.
 <aside class="success">
 You can use either Basic HTTP Authentication or Pre-signed URLs to make Category API requests.
@@ -543,6 +549,82 @@ Keep in mind: URLs can be classified into one or more categories. They can also 
 An HTTP 200 response indicates that the JSON contains the most current, up-to-date categories for the given URL.
 
 An HTTP 202 response is given when the categories are being calculated for the given URL. If you check back again soon the categories for the URL will be updated.
+
+# Understanding the Response
+
+## IAB Taxonomy
+
+> Sample category lookup response for "webshrinker.com"
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "data": [
+        {
+            "categories": [
+                {
+                    "confident": true,
+                    "id": "IAB19",
+                    "label": "Technology & Computing",
+                    "parent": "IAB19",
+                    "score": "0.855809166500086094"
+                },
+                {
+                    "confident": true,
+                    "id": "IAB19-18",
+                    "label": "Internet Technology",
+                    "parent": "IAB19",
+                    "score": "0.824063117153139624"
+                }
+            ],
+            "url": "webshrinker.com"
+        }
+    ]
+}
+```
+
+Each detected category will be listed in the "categories" section of the JSON response along with some additional details. The extra details help you understand how relevant that particular category is to the website or the content found on a page.
+
+Field | Description
+----- | -----------
+confident | If set to true, this indicates that the majority of the analyzed content relates to this category. Categories with the 'confident' flag can be useful to indicate primary from secondary categories.
+id | The IAB category identifier.
+label | Human friendly label for the detected category. This doesn't include the label of the parent category.
+parent | The IAB category identifier for the entry that is one tier higher than the current category, or its parent.
+score | A floating point number that indicates how much confidence is given to the category selection.
+
+<aside class="notice">
+There isn't a limit to the number of categories that can be returned for a query. It is best to use the 'confident' field, the 'score' field, or possibly both to determine the best categories for your particular use case.
+</aside>
+
+## Web Shrinker Taxonomy
+
+> Sample category lookup response for "webshrinker.com"
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "data": [
+        {
+            "categories": [
+                "business",
+                "informationtech"
+            ],
+            "url": "webshrinker.com"
+        }
+    ]
+}
+```
+
+Each detected category will be listed in the "categories" section of the JSON response. Each entry is the "short name" or "tag" identifier which indicates the relevant categories.
+
+<aside class="notice">
+The Web Shrinker taxonomy will return up to three of the most relevant categories for the query. The only exception is when querying IP addresses, as they cover a wider range of content and can return a greater number of categories.
+</aside>
 
 # Errors
 
