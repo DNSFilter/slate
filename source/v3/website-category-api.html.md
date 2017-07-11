@@ -181,6 +181,10 @@ print webshrinker_categories_v3(access_key, secret_key, url)
 
 ```
 
+# Available Categories
+
+[Supported IAB Website Categories](iab-website-categories.html)
+
 # Making Requests
 
 ## Category List
