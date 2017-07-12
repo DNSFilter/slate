@@ -84,45 +84,6 @@ If you are crafting the "Authorization" header yourself it is the word "Basic" f
 
 ## Pre-signed URLs
 
-> Example pre-signed category lookup:
-
-> <a target="_blank" href="https://api.webshrinker.com/categories/v3/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v3/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3</a>
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "data": [
-        {
-            "categories": [
-                {
-                    "confident": true,
-                    "id": "IAB19",
-                    "label": "Technology & Computing",
-                    "parent": "IAB19",
-                    "score": "0.855809166500086094"
-                },
-                {
-                    "confident": true,
-                    "id": "IAB19-18",
-                    "label": "Internet Technology",
-                    "parent": "IAB19",
-                    "score": "0.824063117153139624"
-                }
-            ],
-            "url": "webshrinker.com"
-        }
-    ]
-}
-```
-
-Generating a pre-signed URL allows you to make requests without revealing your secret key. It’s perfect for situations where you need to embed a request in an application or in a webpage but don’t want users to know your secret key, preventing a third party from making unauthorized requests against your account.
-
-The URL used to make the API request is signed using your access and secret key but the URL itself doesn’t contain the secret key. Instead it contains an extra parameter called "hash".
-
-The "hash" is the MD5 hash of your secret key, a colon (":"), and the request URL with query parameters. 
-
 ```shell
 WS_ACCESS_KEY="your access key"
 WS_SECRET_KEY="your secret key"
@@ -139,14 +100,14 @@ echo "https://api.webshrinker.com/$REQUEST&hash=$HASH"
 <?php
 
 function webshrinker_categories_v3($access_key, $secret_key, $url="", $options=array()) {
-	$options['key'] = $access_key;
+    $options['key'] = $access_key;
 
-	$parameters = http_build_query($options);
+    $parameters = http_build_query($options);
 
-	$request = sprintf("categories/v3/%s?%s", base64_encode($url), $parameters);
-	$hash = md5(sprintf("%s:%s", $secret_key, $request));
+    $request = sprintf("categories/v3/%s?%s", base64_encode($url), $parameters);
+    $hash = md5(sprintf("%s:%s", $secret_key, $request));
 
-	return "https://api.webshrinker.com/{$request}&hash={$hash}";
+    return "https://api.webshrinker.com/{$request}&hash={$hash}";
 }
 
 $access_key = "your access key";
@@ -180,6 +141,12 @@ url = "https://www.webshrinker.com/"
 print webshrinker_categories_v3(access_key, secret_key, url)
 
 ```
+
+Generating a pre-signed URL allows you to make requests without revealing your secret key. It’s perfect for situations where you need to embed a request in an application or in a webpage but don’t want users to know your secret key, preventing a third party from making unauthorized requests against your account.
+
+The URL used to make the API request is signed using your access and secret key but the URL itself doesn’t contain the secret key. Instead it contains an extra parameter called "hash".
+
+The "hash" is the MD5 hash of your secret key, a colon (":"), and the request URL with query parameters. 
 
 # Category Taxonomies
 
@@ -367,8 +334,6 @@ You can use either Basic HTTP Authentication or Pre-signed URLs to make Category
 ## Category Lookup
 
 > Example JSON response:
-
-> <a target="_blank" href="https://api.webshrinker.com/categories/v3/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v3/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3</a>
 
 ```http
 HTTP/1.1 200 OK
