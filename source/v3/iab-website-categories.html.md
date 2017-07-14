@@ -206,7 +206,7 @@ There are some minor changes to the category name labels as well as a few catego
     * IAB9-14 - Genealogy
     * <s>IAB9-15 - Getting Published</s> (see: IAB9-13) <sup><a href="#2">2</a></sup>
     * IAB9-16 - Guitar / Keyboard / Drums <sup><a href="#1">1</a></sup>
-    * IAB9-17 - Home Recording
+    * <s>IAB9-17 - Home Recording</s>
     * IAB9-18 - Investors / Inventors / Patents / Copyright <sup><a href="#1">1</a></sup>
     * IAB9-19 - Jewelry Making
     * IAB9-20 - Magic & Illusion
@@ -409,8 +409,8 @@ There are some minor changes to the category name labels as well as a few catego
 * IAB22 - Shopping
     * IAB22-1 - Contests & Freebies
     * IAB22-2 - Couponing
-    * IAB22-3 - Comparison
-    * IAB22-4 - Engines
+    * <s>IAB22-3 - Comparison</s>
+    * <s>IAB22-4 - Engines</s>
 * IAB23 - Religion & Spirituality
     * IAB23-1 - Alternative Religions
     * IAB23-2 - Atheism / Agnosticism
