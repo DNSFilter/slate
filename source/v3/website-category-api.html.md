@@ -122,24 +122,28 @@ echo "$signedUrl\n";
 ```
 
 ```python
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 from base64 import urlsafe_b64encode
 import hashlib
 
-def webshrinker_categories_v3(access_key, secret_key, url="", params={}):
+def webshrinker_categories_v3(access_key, secret_key, url=b"", params={}):
     params['key'] = access_key
 
-    request = "categories/v3/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
-    signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
+    request = "categories/v3/{}?{}".format(urlsafe_b64encode(url).decode('utf-8'), urlencode(params, True))
+    request_to_sign = "{}:{}".format(secret_key, request).encode('utf-8')
+    signed_request = hashlib.md5(request_to_sign).hexdigest()
 
-    return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
+    return "https://api.webshrinker.com/{}&hash={}".format(request, signed_request)
 
 access_key = "your access key"
 secret_key = "your secret key"
 
-url = "https://www.webshrinker.com/"
-print webshrinker_categories_v3(access_key, secret_key, url)
-
+url = b"https://www.webshrinker.com/"
+print(webshrinker_categories_v3(access_key, secret_key, url))
 ```
 
 Generating a pre-signed URL allows you to make requests without revealing your secret key. It’s perfect for situations where you need to embed a request in an application or in a webpage but don’t want users to know your secret key, preventing a third party from making unauthorized requests against your account.
@@ -266,25 +270,29 @@ switch($status_code) {
 # http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure
 ##########################################################################################
 
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 from base64 import urlsafe_b64encode
 import hashlib
 import requests
+import json
 
-def webshrinker_categories_v3(access_key, secret_key, url="", params={}):
+def webshrinker_categories_v3(access_key, secret_key, url=b"", params={}):
     params['key'] = access_key
 
-    request = "categories/v3/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
-    signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
+    request = "categories/v3/{}?{}".format(urlsafe_b64encode(url).decode('utf-8'), urlencode(params, True))
+    request_to_sign = "{}:{}".format(secret_key, request).encode('utf-8')
+    signed_request = hashlib.md5(request_to_sign).hexdigest()
 
-    return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
+    return "https://api.webshrinker.com/{}&hash={}".format(request, signed_request)
 
 access_key = "your access key"
 secret_key = "your secret key"
 
-url = "https://www.webshrinker.com/"
-
-api_url = webshrinker_categories_v3(access_key, secret_key, url)
+api_url = webshrinker_categories_v3(access_key, secret_key)
 response = requests.get(api_url)
 
 status_code = response.status_code
@@ -292,25 +300,25 @@ data = response.json()
 
 if status_code == 200:
     # Do something with the JSON response
-    print data
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 202:
     # The website is being visited and the categories will be updated shortly
-    print data
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 400:
     # Bad or malformed HTTP request
-    print "Bad or malformed HTTP request"
-    print data
+    print("Bad or malformed HTTP request")
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 401:
     # Unauthorized
-    print "Unauthorized - check your access and secret key permissions"
-    print data
+    print("Unauthorized - check your access and secret key permissions")
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 402:
     # Request limit reached
-    print "Account request limit reached"
-    print data
+    print("Account request limit reached")
+    print(json.dumps(data, indent=4, sort_keys=True))
 else:
     # General error occurred
-    print "A general error occurred, try the request again"
+    print("A general error occurred, try the request again")
 ```
 
 This endpoint returns JSON with all of the possible categories that URLs, hostnames, and IP addresses can be associated with.
@@ -432,23 +440,29 @@ switch($status_code) {
 # http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure
 ##########################################################################################
 
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 from base64 import urlsafe_b64encode
 import hashlib
 import requests
+import json
 
-def webshrinker_categories_v3(access_key, secret_key, url="", params={}):
+def webshrinker_categories_v3(access_key, secret_key, url=b"", params={}):
     params['key'] = access_key
 
-    request = "categories/v3/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
-    signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
+    request = "categories/v3/{}?{}".format(urlsafe_b64encode(url).decode('utf-8'), urlencode(params, True))
+    request_to_sign = "{}:{}".format(secret_key, request).encode('utf-8')
+    signed_request = hashlib.md5(request_to_sign).hexdigest()
 
-    return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
+    return "https://api.webshrinker.com/{}&hash={}".format(request, signed_request)
 
 access_key = "your access key"
 secret_key = "your secret key"
 
-url = "https://www.webshrinker.com"
+url = b"https://www.webshrinker.com/"
 
 api_url = webshrinker_categories_v3(access_key, secret_key, url)
 response = requests.get(api_url)
@@ -458,25 +472,25 @@ data = response.json()
 
 if status_code == 200:
     # Do something with the JSON response
-    print data
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 202:
     # The website is being visited and the categories will be updated shortly
-    print data
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 400:
     # Bad or malformed HTTP request
-    print "Bad or malformed HTTP request"
-    print data
+    print("Bad or malformed HTTP request")
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 401:
     # Unauthorized
-    print "Unauthorized - check your access and secret key permissions"
-    print data
+    print("Unauthorized - check your access and secret key permissions")
+    print(json.dumps(data, indent=4, sort_keys=True))
 elif status_code == 402:
     # Request limit reached
-    print "Account request limit reached"
-    print data
+    print("Account request limit reached")
+    print(json.dumps(data, indent=4, sort_keys=True))
 else:
     # General error occurred
-    print "A general error occurred, try the request again"
+    print("A general error occurred, try the request again")
 ```
 
 This endpoint returns a JSON response with the categories associated with the given URL, hostname, or IP address.
