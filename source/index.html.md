@@ -22,8 +22,20 @@ Content-Type: application/json
     "data": [
         {
             "categories": [
-                "informationtech",
-                "business"
+                {
+                    "confident": true,
+                    "id": "IAB19",
+                    "label": "Technology & Computing",
+                    "parent": "IAB19",
+                    "score": "0.855809166500086094"
+                },
+                {
+                    "confident": true,
+                    "id": "IAB19-18",
+                    "label": "Internet Technology",
+                    "parent": "IAB19",
+                    "score": "0.824063117153139624"
+                }
             ],
             "url": "webshrinker.com"
         }
@@ -35,9 +47,9 @@ Web Shrinker utilizes cloud computing and machine learning to classify websites 
 
 Perhaps you’re building an Internet website filter and need to block certain categories such as adult and social networking sites. Maybe you are running a hosting company and want to enforce an Acceptable Use Policy to prevent customers from running a file sharing or classified ads network. These would be two possible examples of how the website category lookup API can be used.
 
-The current API version is v2.
+The current API version is v3.
 
-[View the Category v2 API documentation](/v2/website-category-api.html)
+[View the Category v3 API documentation](/v3/website-category-api.html)
 
 # Website Domain API
 
