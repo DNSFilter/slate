@@ -5,6 +5,7 @@ language_tabs:
   - shell
   - php
   - python
+  - csharp
 
 toc_footers:
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
@@ -321,6 +322,29 @@ else:
     print("A general error occurred, try the request again")
 ```
 
+```csharp
+using System;
+using System.Text;
+using System.Net;
+using System.IO;
+
+string apiKey = "your access key";
+string apiSecret = "your secret key";
+
+string apiUrl = "https://api.webshrinker.com/categories/v3";
+
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+request.ContentType = "application/json; charset=utf-8";
+request.Headers["Authorization"] = "Basic " + Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(apiKey+":"+apiSecret));
+request.PreAuthenticate = true;
+HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+using (Stream responseStream = response.GetResponseStream())
+{
+    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
+    Console.WriteLine(reader.ReadToEnd());
+}
+```
+
 This endpoint returns JSON with all of the possible categories that URLs, hostnames, and IP addresses can be associated with.
 
 ### HTTP Request
@@ -491,6 +515,31 @@ elif status_code == 402:
 else:
     # General error occurred
     print("A general error occurred, try the request again")
+```
+
+```c#
+using System;
+using System.Text;
+using System.Net;
+using System.IO;
+
+string apiKey = "your access key";
+string apiSecret = "your secret key";
+
+string domain = "example.com";
+
+string apiUrl = "https://api.webshrinker.com/categories/v3/" + Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(domain));
+
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+request.ContentType = "application/json; charset=utf-8";
+request.Headers["Authorization"] = "Basic " + Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(apiKey+":"+apiSecret));
+request.PreAuthenticate = true;
+HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+using (Stream responseStream = response.GetResponseStream())
+{
+    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
+    Console.WriteLine(reader.ReadToEnd());
+}
 ```
 
 This endpoint returns a JSON response with the categories associated with the given URL, hostname, or IP address.
