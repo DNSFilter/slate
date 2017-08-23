@@ -110,15 +110,20 @@ echo "$signedUrl\n";
 ```
 
 ```python
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 from base64 import urlsafe_b64encode
 import hashlib
 
 def webshrinker_v2(access_key, secret_key, url, params):
     params['key'] = access_key
 
-    request = "thumbnails/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
-    signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
+    request = "thumbnails/v2/%s?%s" % (urlsafe_b64encode(url).decode('utf-8'), urlencode(params, True))
+    request_to_sign = "{}:{}".format(secret_key, request).encode('utf-8')
+    signed_request = hashlib.md5(request_to_sign).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
 
@@ -129,8 +134,9 @@ params = {
     'size': 'xlarge'
 }
 
-url = "http://www.example.com"
-print webshrinker_v2(access_key, secret_key, url, params)
+url = b"http://www.example.com"
+
+print(webshrinker_v2(access_key, secret_key, url, params))
 ```
 
 # Making Requests
@@ -209,7 +215,11 @@ switch($status_code) {
 # http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure
 ##########################################################################################
 
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 from base64 import urlsafe_b64encode
 import hashlib
 import requests
@@ -217,8 +227,9 @@ import requests
 def webshrinker_v2(access_key, secret_key, url, params):
     params['key'] = access_key
 
-    request = "thumbnails/v2/%s?%s" % (urlsafe_b64encode(url), urlencode(params, True))
-    signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
+    request = "thumbnails/v2/%s?%s" % (urlsafe_b64encode(url).decode('utf-8'), urlencode(params, True))
+    request_to_sign = "{}:{}".format(secret_key, request).encode('utf-8')
+    signed_request = hashlib.md5(request_to_sign).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
 
@@ -229,7 +240,7 @@ params = {
     'size': 'xlarge' 
 }
 
-url = "https://www.webshrinker.com"
+url = b"https://www.webshrinker.com"
 
 # Make a screenshot API call using pre-signed URL authentication
 api_url = webshrinker_v2(access_key, secret_key, url, params)
@@ -241,7 +252,7 @@ status_code = response.status_code
 if status_code == 200:
     # image_data contains the screenshot of the site
     # Do something with the image
-    print "Screenshot image retrieved and saved to 'screenshot.png'"
+    print("Screenshot image retrieved and saved to 'screenshot.png'")
 
     f = open("screenshot.png", "wb")
     f.write(image_data)
@@ -249,23 +260,24 @@ if status_code == 200:
 elif status_code == 202:
     # The website is being visited and the screenshot created
     # image_data contains the placeholder loading image
-    print "The screenshot is being created, the placeholder image was saved to 'screenshot.png'"
+    print("The screenshot is being created, the placeholder image was saved to 'screenshot.png'")
 
     f = open("screenshot.png", "wb")
     f.write(image_data)
     f.close()
 elif status_code == 400:
     # Bad or malformed HTTP request
-    print "Bad or malformed HTTP request"
+    print("Bad or malformed HTTP request")
 elif status_code == 401:
     # Unauthorized
-    print "Unauthorized - check your access and secret key permissions"
+    print("Unauthorized - check your access and secret key permissions")
 elif status_code == 402:
     # Request limit reached
-    print "Account request limit reached"
+    print("Account request limit reached")
 else:
     # General error occurred
-    print "A general error occurred, try the request again"
+    print("A general error occurred, try the request again")
+
 ```
 
 This endpoint returns a PNG image in the size requested for the specified URL.
@@ -385,7 +397,11 @@ switch($status_code) {
 # http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure
 ##########################################################################################
 
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 from base64 import urlsafe_b64encode
 import hashlib
 import requests
@@ -393,8 +409,9 @@ import requests
 def webshrinker_info_v2(access_key, secret_key, url, params):
     params['key'] = access_key
 
-    request = "thumbnails/v2/%s/info?%s" % (urlsafe_b64encode(url), urlencode(params, True))
-    signed_request = hashlib.md5("%s:%s" % (secret_key, request)).hexdigest()
+    request = "thumbnails/v2/%s/info?%s" % (urlsafe_b64encode(url).decode('utf-8'), urlencode(params, True))
+    request_to_sign = "{}:{}".format(secret_key, request).encode('utf-8')
+    signed_request = hashlib.md5(request_to_sign).hexdigest()
 
     return "https://api.webshrinker.com/%s&hash=%s" % (request, signed_request)
 
@@ -405,7 +422,7 @@ params = {
     'size': 'xlarge' 
 }
 
-url = "http://www.example.com"
+url = b"http://www.example.com"
 
 # Make a screenshot API call using pre-signed URL authentication
 api_url = webshrinker_info_v2(access_key, secret_key, url, params)
@@ -416,25 +433,25 @@ data = response.json()
 
 if status_code == 200:
     # Do something with the JSON response
-    print data
+    print(data)
 elif status_code == 202:
     # The website is being visited and the screenshot created
-    print data
+    print(data)
 elif status_code == 400:
     # Bad or malformed HTTP request
-    print "Bad or malformed HTTP request"
-    print data
+    print("Bad or malformed HTTP request")
+    print(data)
 elif status_code == 401:
     # Unauthorized
-    print "Unauthorized - check your access and secret key permissions"
-    print data
+    print("Unauthorized - check your access and secret key permissions")
+    print(data)
 elif status_code == 402:
     # Request limit reached
-    print "Account request limit reached"
-    print data
+    print("Account request limit reached")
+    print(data)
 else:
     # General error occurred
-    print "A general error occurred, try the request again"
+    print("A general error occurred, try the request again")
 ```
 
 This endpoint returns a JSON response for the requested URL. The response includes the last updated/visited timestamp and the current screenshot status.
