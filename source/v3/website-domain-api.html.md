@@ -248,6 +248,7 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 start | false | oldest month available | Starting date for search query, format YYYYMMDD (Ex: 20170320)
 end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
+sort | false | asc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'asc' (older -> newer).
 
 <aside class="notice">
 The "language" parameter in the HTTP response is the two letter abbreviation of the primary language detected on the website. It returns the two letter ISO 639-1 code for the language. For a list of all ISO 639-1 language codes, see: <a target="_blank" rel="nofollow">https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a>
@@ -301,6 +302,104 @@ Content-Type: application/json
 }
 ```
 
+```php
+<?php
+
+$access_key = "<insert your API key>";
+$secret_key = "<insert your API secret key>";
+
+$host = "www.webshrinker.com";
+
+// Use URL-safe base64 encoding
+$base64_target_host = str_replace(array('+', '/'), array('-', '_'), base64_encode($host));
+
+$params = array(
+    'limit' => 10
+);
+
+$api_url = sprintf("https://api.webshrinker.com/hosts/v3/%s/links/inbound?%s", $base64_target_host, http_build_query($params));
+
+// Initialize the cURL request
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_USERPWD, "{$access_key}:{$secret_key}");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+$response = json_decode(curl_exec($ch));
+$status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+print_r($response);
+
+switch($status_code) {
+    case 200:
+        // Do something with the JSON response
+        break;
+    case 400:
+        // Bad or malformed HTTP request
+        break;
+    case 401:
+        // Unauthorized
+        break;
+    case 402:
+        // Request limit reached
+        break;
+}
+
+?>
+```
+
+```python
+##########################################################################################
+# NOTE: If you are using Python 2.7.6 you might run into an issue
+# with making API calls using the requests library.
+# For a workaround, see:
+# http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure
+##########################################################################################
+
+import requests
+import json
+from base64 import urlsafe_b64encode
+
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
+target_website = b"<the domain name/IP address of the site to retrieve the hyperlinks>"
+
+key = "<insert your API key>"
+secret_key = "<insert your API secret key>"
+
+params = {
+    "limit": 10
+}
+
+api_url = "https://api.webshrinker.com/hosts/v3/{}/links/inbound?{}".format(urlsafe_b64encode(target_website).decode('utf-8'), urlencode(params, True))
+
+response = requests.get(api_url, auth=(key, secret_key))
+status_code = response.status_code
+data = response.json()
+
+if status_code == 200:
+    # Do something with the JSON response
+    print(json.dumps(data, indent=4))
+elif status_code == 400:
+    # Bad or malformed HTTP request
+    print("Bad or malformed HTTP request")
+    print(data)
+elif status_code == 401:
+    # Unauthorized
+    print("Unauthorized - check your access and secret key permissions")
+    print(data)
+elif status_code == 402:
+    # Request limit reached
+    print("Account request limit reached")
+    print(data)
+else:
+    # General error occurred
+    print("A general error occurred, try the request again")
+```
+
 The domain backlinks (or inbound links) allows you to search through all links we've seen which are pointing to the target domain. You can narrow your search by using start/end dates and access attributes such as "rel", "text", "alt", and "title" for each hyperlink.
 
 ### HTTP Request
@@ -321,12 +420,166 @@ start | false | oldest month available | Starting date for search query, format 
 end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
 limit | false | 3000 | Limit the number of results to this number, max value: 3000
 subdomains | false | false | By default links are returned for the queried host only. If you want to include subdomains of that host, set this to true.
+sort | false | asc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'asc' (older -> newer).
 
 ## Domain Outbound Links
 
-<aside class="notice">
-Coming May 2017 - contact us for early access
-</aside>
+> Sample outbound links for example.com
+
+```http
+GET /hosts/v3/ZXhhbXBsZS5jb20=/links/outbound HTTP/1.1
+Host: api.webshrinker.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "data": [
+        {
+            "start_date": "2016-08-01",
+            "end_date": "2017-10-31",
+            "links": [
+                {
+                    "from": "http://example.com/",
+                    "to": "http://www.iana.org/domains/example",
+                    "seen": "2017-07-08T06:19:17Z",
+                    "attrs": {
+                        "text": "More information..."
+                    }
+                }
+            ]
+        }
+    ],
+    "paging": {
+        "cursors": {},
+        "next": "",
+        "count": 1,
+        "remaining": 0
+    }
+}
+```
+
+```php
+<?php
+
+$access_key = "<insert your API key>";
+$secret_key = "<insert your API secret key>";
+
+$host = "www.example.com";
+
+// Use URL-safe base64 encoding
+$base64_target_host = str_replace(array('+', '/'), array('-', '_'), base64_encode($host));
+
+$params = array(
+    'limit' => 10
+);
+
+$api_url = sprintf("https://api.webshrinker.com/hosts/v3/%s/links/outbound?%s", $base64_target_host, http_build_query($params));
+
+// Initialize the cURL request
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_USERPWD, "{$access_key}:{$secret_key}");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+$response = json_decode(curl_exec($ch));
+$status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+print_r($response);
+
+switch($status_code) {
+    case 200:
+        // Do something with the JSON response
+        break;
+    case 400:
+        // Bad or malformed HTTP request
+        break;
+    case 401:
+        // Unauthorized
+        break;
+    case 402:
+        // Request limit reached
+        break;
+}
+
+?>
+```
+
+```python
+##########################################################################################
+# NOTE: If you are using Python 2.7.6 you might run into an issue
+# with making API calls using the requests library.
+# For a workaround, see:
+# http://stackoverflow.com/questions/31649390/python-requests-ssl-handshake-failure
+##########################################################################################
+
+import requests
+import json
+from base64 import urlsafe_b64encode
+
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
+target_website = b"<the domain name/IP address of the site to retrieve outbound hyperlinks>"
+
+key = "<insert your API key>"
+secret_key = "<insert your API secret key>"
+
+params = {
+    "limit": 10
+}
+
+api_url = "https://api.webshrinker.com/hosts/v3/{}/links/outbound?{}".format(urlsafe_b64encode(target_website).decode('utf-8'), urlencode(params, True))
+
+response = requests.get(api_url, auth=(key, secret_key))
+status_code = response.status_code
+data = response.json()
+
+if status_code == 200:
+    # Do something with the JSON response
+    print(json.dumps(data, indent=4))
+elif status_code == 400:
+    # Bad or malformed HTTP request
+    print("Bad or malformed HTTP request")
+    print(data)
+elif status_code == 401:
+    # Unauthorized
+    print("Unauthorized - check your access and secret key permissions")
+    print(data)
+elif status_code == 402:
+    # Request limit reached
+    print("Account request limit reached")
+    print(data)
+else:
+    # General error occurred
+    print("A general error occurred, try the request again")
+```
+
+The domain outbound links allow you to search through all hyperlinks we've seen on the target site that point to another destination. 
+You can narrow your search by using start/end dates and access attributes such as "rel", "text", "alt", and "title" for each hyperlink.
+
+### HTTP Request
+
+`GET https://api.webshrinker.com/hosts/v3/<host>/links/outbound`
+
+### URL
+
+Parameter | Required | Default | Description
+--------- | -------- | ------- | -----------
+host | true | | The 'host' is part of the request and not an additional parameter. It should be URL safe, Base64-encoded for maximum compatibility. It can be a domain name or IP address.
+
+### Query Parameters
+
+Parameter | Required | Default | Description
+--------- | -------- | ------- | -----------
+start | false | oldest month available | Starting date for search query, format YYYYMMDD (Ex: 20170320)
+end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
+limit | false | 3000 | Limit the number of results to this number, max value: 3000
+subdomains | false | false | By default links are returned for the queried host only. If you want to include subdomains of that host, set this to true.
+sort | false | asc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'asc' (older -> newer).
 
 # Understanding the Response
 
@@ -399,7 +652,7 @@ remaining | Estimated number of entries left to retrieve
 
 ## Hyperlink Data
 
-> Sample backlinks for "webshrinker.com"
+> Sample backlinks for "example.com"
 
 ```http
 HTTP/1.1 200 OK
@@ -416,7 +669,9 @@ Content-Type: application/json
                     "to": "http://example.com/",
                     "seen": "2016-10-23T23:17:16Z",
                     "attrs": {
-                        "text": "foo"
+                        "text": "foo",
+                        "target": "_blank",
+                        "rel": "nofollow"
                     }
                 }
             ]
@@ -439,7 +694,7 @@ Field | Description
 ----- | -----------
 from | The URL where the hyperlink was discovered.
 to | The target URL, where the hyperlink points.
-seen | The ISO date when the link was discovered.
+seen | The ISO 8601 date when the link was discovered.
 attrs | Data about the link
 
 
