@@ -248,7 +248,7 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 start | false | oldest month available | Starting date for search query, format YYYYMMDD (Ex: 20170320)
 end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
-sort | false | asc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'asc' (older -> newer).
+sort | false | desc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'desc' (newer -> older).
 
 <aside class="notice">
 The "language" parameter in the HTTP response is the two letter abbreviation of the primary language detected on the website. It returns the two letter ISO 639-1 code for the language. For a list of all ISO 639-1 language codes, see: <a target="_blank" rel="nofollow">https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a>
@@ -420,7 +420,7 @@ start | false | oldest month available | Starting date for search query, format 
 end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
 limit | false | 3000 | Limit the number of results to this number, max value: 3000
 subdomains | false | false | By default links are returned for the queried host only. If you want to include subdomains of that host, set this to true.
-sort | false | asc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'asc' (older -> newer).
+sort | false | desc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'desc' (newer -> older).
 
 ## Domain Outbound Links
 
@@ -579,7 +579,7 @@ start | false | oldest month available | Starting date for search query, format 
 end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
 limit | false | 3000 | Limit the number of results to this number, max value: 3000
 subdomains | false | false | By default links are returned for the queried host only. If you want to include subdomains of that host, set this to true.
-sort | false | asc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'asc' (older -> newer).
+sort | false | desc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'desc' (newer -> older).
 
 # Understanding the Response
 
