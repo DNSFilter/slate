@@ -704,9 +704,13 @@ Field | Description
 ----- | -----------
 text | The text shown to the user for the link
 target | The target for the link
-rel | Any rel tags, separated by spaces (example: nofollow,noopener)
+rel | Any rel tags, separated by commas (example: nofollow,noopener)
 title | The HTML title attribute for the link
 alt | Alternate text (normally for assistive technologies like text readers)
+
+<aside class="notice">
+These attributes will only be present if they were originally seen on the hyperlink.
+</aside>
 
 # Errors
 
