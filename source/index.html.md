@@ -58,47 +58,63 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "data": {
-    "addresses": {
-      "ipv4": {
-        "199.16.156.230": [
-          "2017-03-20T13:27:10Z"
-        ]
-      }
-    },
-    "categories": [
-      "socialnetworking"
+    "data": [
+        {
+            "start_date": "2016-08-01",
+            "end_date": "2017-10-31",
+            "language": "en",
+            "categories": [
+                "socialnetworking"
+            ],
+            "host": "twitter.com",
+            "related": [
+                "2013.twitter.com",
+                "yearinreview.twitter.com",
+                "apps.twitter.com",
+                "analytics.twitter.com",
+                "search.twitter.com",
+                "bloombergtechnology.twitter.com",
+                "goldenglobes.twitter.com",
+                "assets3.twitter.com",
+                "blog.uk.twitter.com",
+                "jobs.twitter.com",
+                "assets4.twitter.com",
+                "marketing.twitter.com",
+                "cards.twitter.com",
+                "media.twitter.com",
+                "translate.twitter.com",
+                "assets2.twitter.com",
+                "pic.twitter.com",
+                "about.twitter.com",
+                "music.twitter.com",
+                "dev.twitter.com"
+            ],
+            "addresses": {
+                "ipv4": {
+                    "104.244.42.129": [
+                        "2017-08-11T18:56:06Z"
+                    ],
+                    "104.244.42.65": [
+                        "2017-08-09T11:26:34Z"
+                    ],
+                    "104.244.42.1": [
+                        "2017-07-10T15:07:23Z"
+                    ],
+                    "199.16.156.102": [
+                        "2016-10-20T21:18:01Z"
+                    ],
+                    "199.16.156.230": [
+                        "2016-08-31T00:00:00Z"
+                    ]
+                }
+            }
+        }
     ],
-    "host": "twitter.com",
-    "language": "en",
-    "related": [
-      "business.twitter.com",
-      "brand.twitter.com",
-      "blog.twitter.com",
-      "ads.twitter.com",
-      "support.twitter.com",
-      "careers.twitter.com",
-      "discover.twitter.com",
-      "tweetdeck.twitter.com",
-      "mobile.twitter.com",
-      "2014.twitter.com",
-      "2013.twitter.com",
-      "mobile.blog.twitter.com",
-      "publish.twitter.com",
-      "dev.twitter.com",
-      "apiwiki.twitter.com",
-      "partners.twitter.com",
-      "marketing.twitter.com",
-      "jobs.twitter.com",
-      "transparency.twitter.com",
-      "2015.twitter.com",
-      "analytics.twitter.com",
-      "about.twitter.com",
-      "api.twitter.com",
-      "apps.twitter.com",
-      "engineering.twitter.com"
-    ]
-  }
+    "paging": {
+        "cursors": {},
+        "next": "",
+        "count": 25
+    }
 }
 ```
 
@@ -110,9 +126,9 @@ Retrieve domain backlinks: Returns a list of external websites that link to the 
 
 Retrieve domain outbound links: Returns a list of websites that the requested domain name is linking to, including link attributes such as 'rel', 'text', and 'alt'.
 
-The current API version is v2.
+The current API version is v3.
 
-[View the Domain v2 API documentation](/v2/website-domain-api.html)
+[View the Domain v3 API documentation](/v3/website-domain-api.html)
 
 # Website Screenshot API
 

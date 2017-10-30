@@ -721,9 +721,7 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/json
 
 {
-    "error": {
-        "message": "Invalid start date parameter (use format: YYYYMMDD)"
-    }
+    "message": "Invalid start date parameter (use format: YYYYMMDD)"
 }
 ```
 
