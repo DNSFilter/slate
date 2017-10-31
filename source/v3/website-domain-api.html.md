@@ -248,6 +248,7 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 start | false | oldest month available | Starting date for search query, format YYYYMMDD (Ex: 20170320)
 end | false | most recent month | Ending date for search query, format YYYYMMDD (Ex: 20161225)
+limit | false | 3000 | Limit the number of results to this number, max value: 3000. This is the total number of entries for both 'addresses' and 'related' fields returned in one response.
 sort | false | desc | Best effort attempt to order results in ascending (asc) or descending (desc) order. Default is 'desc' (newer -> older).
 
 <aside class="notice">
