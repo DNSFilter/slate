@@ -11,7 +11,7 @@ search: true
 
 # Web Shrinker Categories
 
-The Web Shrinker categories are composed of 40 top-level categories, making integration simpler. These categories are the most requested and frequently used for applications such as Internet filtering and security applications.
+The Web Shrinker categories are composed of 42 top-level categories, making integration simpler. These categories are the most requested and frequently used for applications such as Internet filtering and security applications.
 
 ## Categories
 
@@ -31,6 +31,7 @@ blogsandpersonal | Blogs and Personal Sites | Includes sites that make use of co
 business | Business | Sites which exhibit business-like attributes such as selling of services, products, or consulting. Normally used as a secondary category to a more descriptive primary category.
 chatandmessaging | Chat and Instant Messaging | Sites which provide chat or text messaging services or such abilities through a download or application.
 contentserver | Content Server | Sites whose main purpose is to serve static image, CSS, and JavaScript files.
+deceptive | Deceptive | Sites that attempt to trick the user into believing they are on a different site in order to gather information or for other purposes. Also includes sites with deceptive advertising practices such as performing click redirections without the users consent.
 drugs | Drugs | Sites that contain content whose main focus is on controlled substances, including the sale, discussion, or glorification of such substances. Does not include alcohol and tobacco as that has its own category.
 economyandfinance | Economy and Finance | Includes sites that are mainly focused on stocks and current market information or provide financial services such as banks or lenders.
 education | Education & Self-Help | Sites whose main purpose is to offer educational information, community information, or how-tos. Also includes educational facilities and related organizations.
@@ -44,6 +45,7 @@ humor | Humor | Sites that contain content with a focus on jokes or comedy, incl
 illegalcontent | Illegal Content | Sites that focus on providing links to pirated movies, commercial software, or providing application keys and cracks for commercial applications.
 informationtech | Information Technology | Sites whose main focus is on computers or distributing computer related information, including computer networking, Internet telephony, operating systems, or programming.
 jobrelated | Jobs & Careers | Sites that focus on assisting visitors in finding employment, career guidance or improvement.
+malicious | Malicious | Sites that are infected with or distribute any kind of malware, spyware, or viruses. Also contains sites acting as a C&C for bots, worms, trojans, and other malware.
 mediasharing | Media Sharing | Sites that allow visitors to upload content and share media such as photos and videos.
 messageboardsandforums | Messageboards and Forums | Sites which provide some type of a messaging or bulletin board system whose content is largely community generated.
 newsandmedia | News and Media | Sites whose content is mostly focused on current events and topics. Includes various news outlets, radio, TV stations, and magazines.

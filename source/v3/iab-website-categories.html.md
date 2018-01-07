@@ -439,5 +439,5 @@ There are some minor changes to the category name labels as well as a few catego
     * IAB26-3 - Spyware / Malware / Malicious <sup><a href="#1">1</a></sup>
     * IAB26-4 - Copyright Infringement
     * IAB26-WS1 - Illegal Drugs & Paraphernalia <sup><a href="#4">4</a></sup>
-    * IAB26-WS2 - Phishing <sup><a href="#4">4</a></sup>
+    * IAB26-WS2 - Deceptive / Phishing <sup><a href="#4">4</a></sup>
 
