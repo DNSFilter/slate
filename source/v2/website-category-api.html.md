@@ -17,7 +17,7 @@ search: true
 
 > Example JSON response for a category lookup of webshrinker.com:
 
-> <a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3</a>
+> <a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f</a>
 
 ```http
 HTTP/1.1 200 OK
@@ -64,7 +64,7 @@ If you are crafting the "Authorization" header yourself it is the word "Basic" f
 
 > Example pre-signed category lookup:
 
-> <a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3</a>
+> <a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f</a>
 
 ```http
 HTTP/1.1 200 OK
@@ -212,7 +212,7 @@ curl -u "access-key:secret-key" "https://api.webshrinker.com/categories/v2"
 
 or
 
-curl "https://api.webshrinker.com/categories/v2?key=NB6E8ZYEYTo8brr73dmT&hash=f4512f0a258b8e39fdf623c4b99e9915"
+curl "https://api.webshrinker.com/categories/v2/?key=TvQu6ARhl2Zs7BVV1plU&hash=a38daae2b806a39d3768251746b13c37"
 ```
 
 ```php
@@ -340,7 +340,7 @@ You can use either Basic HTTP Authentication or Pre-signed URLs to make Category
 
 > Example JSON response:
 
-> <a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3</a>
+> <a target="_blank" href="https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f">https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f</a>
 
 ```http
 HTTP/1.1 200 OK
@@ -364,7 +364,7 @@ curl -u "access-key:secret-key" "https://api.webshrinker.com/categories/v2/d2Vic
 
 or
 
-curl "https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3"
+curl "https://api.webshrinker.com/categories/v2/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=a999aa9263ea0600a22fc0557f83f90f"
 ```
 
 ```php

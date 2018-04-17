@@ -211,7 +211,7 @@ curl -u "access-key:secret-key" "https://api.webshrinker.com/categories/v3"
 
 or
 
-curl "https://api.webshrinker.com/categories/v3?key=NB6E8ZYEYTo8brr73dmT&hash=f4512f0a258b8e39fdf623c4b99e9915"
+curl "https://api.webshrinker.com/categories/v3/?key=TvQu6ARhl2Zs7BVV1plU&hash=0f41d9264f05b2aeb0064fc6d7114cbc"
 ```
 
 ```php
@@ -401,7 +401,7 @@ curl -u "access-key:secret-key" "https://api.webshrinker.com/categories/v3/d2Vic
 
 or
 
-curl "https://api.webshrinker.com/categories/v3/d2Vic2hyaW5rZXIuY29t?key=Xtf5w8wFGjX1OCHcmVok&hash=66eb681f798372718a5e272a86d204b3"
+curl "https://api.webshrinker.com/categories/v3/d2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&hash=afe42ba2e8ae6f9d5ec2a0535ab484fe"
 ```
 
 ```php

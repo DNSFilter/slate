@@ -20,9 +20,9 @@ search: true
 
 > Example of what a website screenshot can look like:
 
-><img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963" />
+><img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4" />
 
-><a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963</a>
+><a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4</a>
 
 > Example of what a pixelated screenshot can look like (used when blurring sites that contain "adult" content):
 
@@ -60,9 +60,9 @@ If you are crafting the "Authorization" header yourself it is the word "Basic" f
 
 > Example pre-signed screenshot URL:
 
-> <img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963" />
+> <img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4" />
 
-> <a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963</a>
+> <a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4</a>
 
 Generating a pre-signed URL allows you to make requests without revealing your secret key. It’s perfect for situations where you need to embed a request in an application or in a webpage but don’t want users to know your secret key, preventing a third party from making unauthorized requests against your account.
 
@@ -317,13 +317,13 @@ You can use either Basic HTTP Authentication or Pre-signed URLs to make image re
 
 > Example JSON response:
 
-> <a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info?size=xlarge&key=NB6E8ZYEYTo8brr73dmT&hash=0593d6a90d29cdef477830e1df8fd4cd">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info?size=xlarge&key=NB6E8ZYEYTo8brr73dmT&hash=0593d6a90d29cdef477830e1df8fd4cd</a>
+> <a target="_blank" href="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info?key=TvQu6ARhl2Zs7BVV1plU&size=xlarge&hash=186514ed46eb14b71fa9b4edebe6bec3">https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==/info?key=TvQu6ARhl2Zs7BVV1plU&size=xlarge&hash=186514ed46eb14b71fa9b4edebe6bec3</a>
 
 ```json
 {
     "data": [
         {
-            "image": "https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==?size=xlarge&key=NB6E8ZYEYTo8brr73dmT&hash=f0106d8ead3c5357934da00f409249af",
+            "image": "https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==?size=xlarge&key=TvQu6ARhl2Zs7BVV1plU&hash=97462c219208614dec16cf9098433f6f",
             "state": "READY",
             "updated": "Mon, 30 May 2016 23:13:06 +0000",
             "url": "https://www.webshrinker.com/"
@@ -500,10 +500,10 @@ You can use either Basic HTTP Authentication or Pre-signed URLs to make informat
 {
     "data": [
         {
-            "image": "https://api.webshrinker.com/thumbnails/v2/aHR0cDovL3d3dy53ZWJzaHJpbmtlci5jb20v?size=xlarge&key=NB6E8ZYEYTo8brr73dmT&hash=12ba6cad25e1d6782c4d9d0a3352705f",
+            "image": "https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==?size=xlarge&key=TvQu6ARhl2Zs7BVV1plU&hash=97462c219208614dec16cf9098433f6f",
             "state": "REFRESH",
             "updated": "Mon, 30 May 2016 18:03:26 +0000",
-            "url": "http://www.webshrinker.com/"
+            "url": "https://www.webshrinker.com/"
         }
     ]
 }

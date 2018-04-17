@@ -132,7 +132,7 @@ The current API version is v3.
 
 # Website Screenshot API
 
-> <img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?size=large&key=NB6E8ZYEYTo8brr73dmT&hash=3a1c610060246f4d6470311f8a4e9963" />
+> <img src="https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29t?key=TvQu6ARhl2Zs7BVV1plU&size=large&hash=d78783a0c6c2f0aced16a18d0b8d30f4" />
 
 The Web Shrinker screenshot/thumbnail API gives you the ability to capture an image of what a particular website looks like in a browser window. You can then include these images in your own web pages or do some other processing on them in your preferred programming language. This technique has been used on many popular sites including the major search engines. 
 
