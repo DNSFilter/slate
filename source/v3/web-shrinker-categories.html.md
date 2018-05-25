@@ -31,6 +31,7 @@ blogsandpersonal | Blogs and Personal Sites | Includes sites that make use of co
 business | Business | Sites which exhibit business-like attributes such as selling of services, products, or consulting. Normally used as a secondary category to a more descriptive primary category.
 chatandmessaging | Chat and Instant Messaging | Sites which provide chat or text messaging services or such abilities through a download or application.
 contentserver | Content Server | Sites whose main purpose is to serve static image, CSS, and JavaScript files.
+cryptomining | Cryptomining | Sites which serve files or host applications that force the web browser to mine cryptocurrency, often utilizing considerable system, network, and power resources.
 deceptive | Deceptive | Sites that attempt to trick the user into believing they are on a different site in order to gather information or for other purposes. Also includes sites with deceptive advertising practices such as performing click redirections without the users consent.
 drugs | Drugs | Sites that contain content whose main focus is on controlled substances, including the sale, discussion, or glorification of such substances. Does not include alcohol and tobacco as that has its own category.
 economyandfinance | Economy and Finance | Includes sites that are mainly focused on stocks and current market information or provide financial services such as banks or lenders.
