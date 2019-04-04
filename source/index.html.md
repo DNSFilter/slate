@@ -10,7 +10,7 @@ search: true
 
 # Introduction
 
-Web Shrinker is a SaaS (Software as a Service) provider. We offer APIs that can be used in a variety of programming languages and, in some cases, directly within HTML code. Currently we have three public facing APIs: [Website Category Lookup API](https://www.webshrinker.com/website-category-lookup-api/), [Website Domain API](https://www.webshrinker.com/website-domain-api), and [Website Screenshot API](https://www.webshrinker.com/website-screenshot-thumbnail-generator/).
+Web Shrinker is a SaaS (Software as a Service) provider. We offer APIs that can be used in a variety of programming languages and, in some cases, directly within HTML code. Currently we have three public facing APIs: [Website Category Lookup API](https://www.webshrinker.com/apis/#domain-category), [Website Domain API](https://www.webshrinker.com/apis/#domain-data), and [Website Screenshot API](https://www.webshrinker.com/apis/#screenshot).
 
 # Website Category API
 
