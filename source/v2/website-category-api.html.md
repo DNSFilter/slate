@@ -8,7 +8,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
-  - <a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a>
+  - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true
 ---
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 ```
 
-The Web Shrinker Category API gives developers the ability to lookup the categories that a particular URL, website, domain name, or IP address is categorized as.
+The Webshrinker Category API gives developers the ability to lookup the categories that a particular URL, website, domain name, or IP address is categorized as.
 
 # Authentication
 

@@ -9,7 +9,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
-  - <a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a>
+  - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true
 ---
@@ -47,7 +47,7 @@ Content-Type: application/json
 }
 ```
 
-The Web Shrinker Category API gives developers the ability to lookup the categories that a particular URL, website, domain name, or IP address is categorized as.
+The Webshrinker Category API gives developers the ability to lookup the categories that a particular URL, website, domain name, or IP address is categorized as.
 
 **URLs**
 
@@ -155,11 +155,11 @@ The "hash" is the MD5 hash of your secret key, a colon (":"), and the request UR
 
 # Category Taxonomies
 
-You can choose to use either the "IAB Tech Lab Content Taxonomy / Quality Assurance Guidelines (QAG) Taxonomy" (iabv1) or "Web Shrinker" (webshrinker). When you make a category API request, pass in the query parameter "taxonomy" with the value set to "iabv1" or "webshrinker" as needed.
+You can choose to use either the "IAB Tech Lab Content Taxonomy / Quality Assurance Guidelines (QAG) Taxonomy" (iabv1) or "Webshrinker" (webshrinker). When you make a category API request, pass in the query parameter "taxonomy" with the value set to "iabv1" or "webshrinker" as needed.
 
-The IAB Content Taxonomy contains over 400 categories and the Web Shrinker taxonomy is composed of 40 top-level categories.
+The IAB Content Taxonomy contains over 400 categories and the Webshrinker taxonomy is composed of 40 top-level categories.
 
-See [Supported IAB Website Categories](iab-website-categories.html) or [Web Shrinker Website Categories](web-shrinker-categories.html) for additional information.
+See [Supported IAB Website Categories](iab-website-categories.html) or [Webshrinker Website Categories](web-shrinker-categories.html) for additional information.
 
 # Making Requests
 
@@ -627,7 +627,7 @@ score | A floating point number that indicates how much confidence is given to t
 There isn't a limit to the number of categories that can be returned for a query. It is best to use the 'confident' field, the 'score' field, or possibly both to determine the best categories for your particular use case.
 </aside>
 
-## Web Shrinker Taxonomy
+## Webshrinker Taxonomy
 
 > Sample category lookup response for "webshrinker.com"
 
@@ -658,11 +658,11 @@ Each detected category will be listed in the "categories" section of the JSON re
 
 Field | Description
 ----- | -----------
-id | The Web Shrinker category "short name".
+id | The Webshrinker category "short name".
 label | Human friendly label for the detected category.
 
 <aside class="notice">
-The Web Shrinker taxonomy will return up to three of the most relevant categories for the query. The only exception is when querying IP addresses, as they cover a wider range of content and can return a greater number of categories.
+The Webshrinker taxonomy will return up to three of the most relevant categories for the query. The only exception is when querying IP addresses, as they cover a wider range of content and can return a greater number of categories.
 </aside>
 
 # Errors

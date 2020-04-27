@@ -4,18 +4,18 @@ title: Website Categories (API v3)
 toc_footers:
   - <a href='website-category-api.html'>< Website Category API v3</a>
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
-  - <a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a>
+  - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true
 ---
 
 # IAB Categories
 
-The Web Shrinker categorization service supports the "IAB Tech Lab Content Taxonomy", or what used to be called the "Quality Assurance Guidelines (QAG) Taxonomy." These categories are composed of Tier-1 and Tier-2 level categories with Tier-2 being a sub-level to a parent category.
+The Webshrinker categorization service supports the "IAB Tech Lab Content Taxonomy", or what used to be called the "Quality Assurance Guidelines (QAG) Taxonomy." These categories are composed of Tier-1 and Tier-2 level categories with Tier-2 being a sub-level to a parent category.
 
 The IAB categories are an industry standard and are heavily used in services like advertising and Internet security and filtering appliances.
 
-There are 26 tier-1 (top level) categories, 366 tier-2 (sub level) categories, and an additional 12 tier-3 categories that are specific to the Web Shrinker category service. The total number of categories are 404.
+There are 26 tier-1 (top level) categories, 366 tier-2 (sub level) categories, and an additional 12 tier-3 categories that are specific to the Webshrinker category service. The total number of categories are 404.
 
 ## Additional Categories
 
@@ -38,7 +38,7 @@ There are some minor changes to the category name labels as well as a few catego
 | <a name="1"><sup>1</sup></a>  | Indicates that the categories label differs slightly from the official IAB label. This was done to clarify categories for some clients as well as for international use.
 | <a name="2"><sup>2</sup></a>  | Indicates that the category was combined with another category. 
 | <a name="3"><sup>3</sup></a>  | IAB12 - This category is a combination of IAB12-1, IAB12-2, and IAB12-3. This change was made to better support international use.
-| <a name="4"><sup>4</sup></a>  | These categories are Web Shrinker specific and are provided in addition to the standard IAB categories.
+| <a name="4"><sup>4</sup></a>  | These categories are Webshrinker specific and are provided in addition to the standard IAB categories.
 
 * IAB1  - Arts & Entertainment
     * IAB1-1 - Books & Literature

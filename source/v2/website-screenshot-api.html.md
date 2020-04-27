@@ -8,7 +8,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
-  - <a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a>
+  - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 includes:
   - errors
@@ -28,9 +28,9 @@ search: true
 
 ><img src="/images/sample_pixelated_image.png" />
 
-The Web Shrinker screenshots API gives developers the ability to capture an image of what a particular website looks like in a browser window. You can then include these images in your own web pages or do some other processing on them in your preferred programming language. This technique has been used on many popular sites including the major search engines. 
+The Webshrinker screenshots API gives developers the ability to capture an image of what a particular website looks like in a browser window. You can then include these images in your own web pages or do some other processing on them in your preferred programming language. This technique has been used on many popular sites including the major search engines. 
 
-While screenshot thumbnails are commonly used on web pages they can also easily be integrated into other applications and frameworks. For instance, say you have a PHP application that needs images of web sites so they can be included in a PDF report, or an application which tracks visual changes on web sites. The possibilities are endless. That’s why we try to make integration with Web Shrinker as easy as possible by offering SDKs and allowing developers access to the underlying API via simple HTTP requests.
+While screenshot thumbnails are commonly used on web pages they can also easily be integrated into other applications and frameworks. For instance, say you have a PHP application that needs images of web sites so they can be included in a PDF report, or an application which tracks visual changes on web sites. The possibilities are endless. That’s why we try to make integration with Webshrinker as easy as possible by offering SDKs and allowing developers access to the underlying API via simple HTTP requests.
 
 It is also possible to automatically pixelate screenshots for websites that are categorized as an "adult" site, reducing the chances that you would be displaying questionable content to your users.
 

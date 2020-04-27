@@ -8,7 +8,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
-  - <a href='https://www.webshrinker.com/'>Main Web Shrinker Site</a>
+  - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true
 ---
@@ -63,7 +63,7 @@ Content-Type: application/json
 }
 ```
 
-The Web Shrinker Domain API gives developers the ability to retrieve information about a given domain name, including its main categories, primary language, hosting server IP addresses, known sub-domain names, as well as inbound and outbound hyperlinks.
+The Webshrinker Domain API gives developers the ability to retrieve information about a given domain name, including its main categories, primary language, hosting server IP addresses, known sub-domain names, as well as inbound and outbound hyperlinks.
 
 # Authentication
 
