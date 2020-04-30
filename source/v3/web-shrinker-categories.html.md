@@ -41,7 +41,7 @@ foodandrecipes | Food and Recipes | Sites that contain food related information 
 gambling | Gambling | Sites that allow a visitor to play games using wagers/placing bets, lottery pools, or provides information on such activities.
 games | Games | Sites that provide games, including online games or through an application.
 hacking | Hacking & Cracking | Sites that disseminate information, hold discussions, or provide a means to gain unauthorized or illegal access to computers and networks.
-health | Health | Sites whose content is focused on a person's well-being, including fitness or workout information, medical conditions, diagnoses, and medical services.
+health | Health | Sites focused on physical, mental, and social well-being, including fitness information, medical conditions, diagnosis, and medical services.
 humor | Humor | Sites that contain content with a focus on jokes or comedy, including satire.
 illegalcontent | Illegal Content | Sites that focus on providing links to pirated movies, commercial software, or providing application keys and cracks for commercial applications.
 informationtech | Information Technology | Sites whose main focus is on computers or distributing computer related information, including computer networking, Internet telephony, operating systems, or programming.
