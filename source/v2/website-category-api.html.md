@@ -7,7 +7,7 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
+  - <a href='https://app.webshrinker.com/signup'>Register for a free account</a>
   - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true
@@ -40,7 +40,7 @@ The Webshrinker Category API gives developers the ability to lookup the categori
 
 # Authentication
 
-To make API requests you need to have an access key and secret key. If you don't have an access key yet, you can register for a free account on our [account dashboard](https://dashboard.webshrinker.com/register).
+To make API requests you need to have an access key and secret key. If you don't have an access key yet, you can register for a free account on our [account dashboard](https://app.webshrinker.com/signup).
 
 There are two methods of authentication that can be used to make API requests: Basic HTTP Authentication and Pre-signed URLs.
 

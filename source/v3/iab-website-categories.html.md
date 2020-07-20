@@ -3,7 +3,7 @@ title: Website Categories (API v3)
 
 toc_footers:
   - <a href='website-category-api.html'>< Website Category API v3</a>
-  - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
+  - <a href='https://app.webshrinker.com/signup'>Register for a free account</a>
   - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true

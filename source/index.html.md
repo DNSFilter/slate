@@ -2,7 +2,7 @@
 title: API Reference
 
 toc_footers:
-  - <a href='https://dashboard.webshrinker.com/register'>Register for a free account</a>
+  - <a href='https://app.webshrinker.com/signup'>Register for a free account</a>
   - <a href='https://www.webshrinker.com/'>Main Webshrinker Site</a>
 
 search: true
