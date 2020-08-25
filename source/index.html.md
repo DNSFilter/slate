@@ -53,6 +53,10 @@ The current API version is v3.
 
 # Website Domain API
 
+<aside class="warning">
+<b>The Domain API will be discontinued as of Dec 31, 2020. It is not recommended to use this API for any new integrations as it will no longer be available after this time.</b>
+</aside>
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

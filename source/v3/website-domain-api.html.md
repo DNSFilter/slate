@@ -13,6 +13,10 @@ toc_footers:
 search: true
 ---
 
+<aside class="warning">
+<b>The Domain API will be discontinued as of Dec 31, 2020. It is not recommended to use this API for any new integrations as it will no longer be available after this time.</b>
+</aside>
+
 # Website Domain API Introduction
 
 > Example response for a lookup of webshrinker.com:
