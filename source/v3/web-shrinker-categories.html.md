@@ -11,7 +11,7 @@ search: true
 
 # Webshrinker Categories
 
-The Webshrinker categories are composed of 42 top-level categories, making integration simpler. These categories are the most requested and frequently used for applications such as Internet filtering and security applications.
+The Webshrinker categories are composed of 46 top-level categories, making integration simpler. These categories are the most requested and frequently used for applications such as Internet filtering and security applications.
 
 ## Categories
 
