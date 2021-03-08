@@ -40,7 +40,9 @@ entertainment | Entertainment | Sites that focus on art and entertainment, inclu
 foodandrecipes | Food and Recipes | Sites that contain food related information or recipes, food preparation, or restaurant services.
 gambling | Gambling | Sites that allow a visitor to play games using wagers/placing bets, lottery pools, or provides information on such activities.
 games | Games | Sites that provide games, including online games or through an application.
+government | Government | Sites that use official government top-level domain names or are run by government entities such as the military, army, or air force.
 hacking | Hacking & Cracking | Sites that disseminate information, hold discussions, or provide a means to gain unauthorized or illegal access to computers and networks.
+hate | Hate & Terrorism | Sites that are primarily focused on promoting terrorism or hate.
 health | Health | Sites focused on physical, mental, and social well-being, including fitness information, medical conditions, diagnosis, and medical services.
 humor | Humor | Sites that contain content with a focus on jokes or comedy, including satire.
 illegalcontent | Illegal Content | Sites that focus on providing links to pirated movies, commercial software, or providing application keys and cracks for commercial applications.
@@ -60,6 +62,7 @@ shopping | Shopping | Sites that sell products or services, normally with an onl
 socialnetworking | Social Networking | Sites that provide a community portal whereby members join and contribute posts or media and forge connections with other members.
 sports | Sports | Sites that contain information about various sports and sporting activities, including sports scores or team information.
 streamingmedia | Streaming Media | Sites that are mainly dedicated to the serving of video or audio streams and downloads.
+trackers | Trackers | Sites or businesses that use various techniques to track user behavior across the internet.
 translators | Translation Sites | Sites that perform translation from one language to another, usually performed by a computer. May also include personal translation services.
 travel | Travel | Sites that focus on travel planning services, travel reservations, and tourist information.
 uncategorized | Uncategorized | Sites that are not currently classified as belonging to one of the other categories or are not yet classified.
